@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{224E5F86-3CA7-46CA-BD81-8577A3A641DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Storage.Engine</RootNamespace>
+    <AssemblyName>Storage.Engine</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Storage.Lib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Storage.Lib\Release\Storage.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\IAccessToken.cs" />
+    <Compile Include="API\ICacheProvider.cs" />
+    <Compile Include="API\IDataAdapter.cs" />
+    <Compile Include="API\IFileToken.cs" />
+    <Compile Include="API\IFileTokenAdapter.cs" />
+    <Compile Include="API\ILogProvider.cs" />
+    <Compile Include="API\ISecurityAdapter.cs" />
+    <Compile Include="API\ISessionResolver.cs" />
+    <Compile Include="API\IToken.cs" />
+    <Compile Include="API\Metadata\EngineLayer\IEngineFileMetadata.cs" />
+    <Compile Include="API\Metadata\EngineLayer\IEngineFileVersionMetadata.cs" />
+    <Compile Include="API\Metadata\EngineLayer\IEngineObjectMetadata.cs" />
+    <Compile Include="API\Metadata\IFileMetadata.cs" />
+    <Compile Include="API\Metadata\IFileVersionMetadata.cs" />
+    <Compile Include="API\Metadata\IFolderMetadata.cs" />
+    <Compile Include="API\Metadata\IMetadataAdapter.cs" />
+    <Compile Include="API\Metadata\IReplicationFolderMetadata.cs" />
+    <Compile Include="API\Metadata\IStorageMetadata.cs" />
+    <Compile Include="API\Replication\IRemoteFile.cs" />
+    <Compile Include="API\Replication\IReplicationAdapter.cs" />
+    <Compile Include="API\Replication\IReplicationFolder.cs" />
+    <Compile Include="API\Replication\IReplicationSchema.cs" />
+    <Compile Include="API\Replication\IReplicationSchemaItem.cs" />
+    <Compile Include="API\Replication\IReplicationTransport.cs" />
+    <Compile Include="EngineConsts.cs" />
+    <Compile Include="Factories\ConfigFactory\ConfigFactory.cs" />
+    <Compile Include="Factories\ConfigFactory\ConfigSection.cs" />
+    <Compile Include="Factories\ConfigFactory\ConfigTypeMapping.cs" />
+    <Compile Include="ObjectModel\Cache\MemoryCache.cs" />
+    <Compile Include="ObjectModel\Cache\MemoryCacheItem.cs" />
+    <Compile Include="ObjectModel\Extensions.cs" />
+    <Compile Include="ObjectModel\File.cs" />
+    <Compile Include="ObjectModel\FileVersion.cs" />
+    <Compile Include="ObjectModel\Folder.cs" />
+    <Compile Include="ObjectModel\Logger\EventViewerLogger.cs" />
+    <Compile Include="ObjectModel\Replication\Config\ConfigReplicationFolder.cs" />
+    <Compile Include="ObjectModel\Replication\Config\ReplicationConfiguration.cs" />
+    <Compile Include="ObjectModel\Replication\RemoteFileInfo.cs" />
+    <Compile Include="ObjectModel\Replication\ReplicationAdapter.cs" />
+    <Compile Include="ObjectModel\Replication\ReplicationFolder.cs" />
+    <Compile Include="ObjectModel\Replication\ReplicationFolderComparer.cs" />
+    <Compile Include="ObjectModel\Replication\ReplicationRelation.cs" />
+    <Compile Include="ObjectModel\Replication\ReplicationSchemaObserver.cs" />
+    <Compile Include="ObjectModel\Replication\Schema\ReplicationSchema.cs" />
+    <Compile Include="ObjectModel\Replication\Schema\ReplicationSchemaItem.cs" />
+    <Compile Include="ObjectModel\SessionLinks\SessionLinkResolver.cs" />
+    <Compile Include="ObjectModel\SessionLinks\SessionLinkToken.cs" />
+    <Compile Include="ObjectModel\StorageEngine.cs" />
+    <Compile Include="ObjectModel\StorageNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Release\Storage.Engine.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
