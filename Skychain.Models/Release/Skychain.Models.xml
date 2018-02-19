@@ -1,0 +1,4301 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skychain.Models</name>
+    </assembly>
+    <members>
+        <member name="T:Skychain.Models.Entity.SkyEntity">
+            <summary>
+            Представляет сохраняемые данные объекта системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntity.ID">
+            <summary>
+            Уникальный идентификатор объекта в базе данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntity.VersionNumber">
+            <summary>
+            Номер версии объекта, увеличиваемый при любом обновлении объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntity.TimeCreated">
+            <summary>
+            Дата и время сохранения нового набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntity.TimeModified">
+            <summary>
+            Дата и время последнего изменения свойств набора данных.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyEntityContextConfiguration">
+            <summary>
+            Конфигурация контекста SkyEntity.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Entity.SkyEntityContextConfiguration.#ctor">
+            <summary>
+            Конфигурация контекста SkyEntity.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyNetworkEntity">
+            <summary>
+            Сохраняемые данные нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.ProfileID">
+            <summary>
+            Идентификатор профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.VersionsInternalIDCounter">
+            <summary>
+            Инкремент, используемый для формирования идентификатора версии нейросети в рамках нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.Name">
+            <summary>
+            Название нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.Description">
+            <summary>
+            Описание нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.Cost">
+            <summary>
+            Стоимость использования нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.Published">
+            <summary>
+            Возвращает true, если набор данных опубликован.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.StateData">
+            <summary>
+            Данные текущего состояния нейросети.
+            Изменяются после выполнения тренировки сети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkEntity.Rating">
+            <summary>
+            Рейтинг нейросети.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyTrainRequestEntity">
+            <summary>
+            Сохраняемые данные запроса запроса тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.NetworkID">
+            <summary>
+            Идентификатор нейросети, для которой выполняется тренировка.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.NetworkVersionID">
+            <summary>
+            Идентификатор тренируемой версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.TrainSchemeID">
+            <summary>
+            Схема тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.InitialStateID">
+            <summary>
+            Идентификатор состояния нейросети, на основе которого выполняется тренировка.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.UserID">
+            <summary>
+            Идентификатор пользователя, выполняющего тренировку нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.Status">
+            <summary>
+            Статус запроса тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.ResultStateID">
+            <summary>
+            Состояние нейросети, сформированное в результате тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.ResultStateDescription">
+            <summary>
+            Описание результирующего состояния.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.StartTime">
+            <summary>
+            Время начала запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.EndTime">
+            <summary>
+            Время начала окончания.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.TrainLog">
+            <summary>
+            Лог, записываемый во время выполнения тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.ErrorMessage">
+            <summary>
+            Сообщение об ошибке, возникшей при выполнении запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainRequestEntity.Succeed">
+            <summary>
+            Возвращает true, если обработка запроса была выполнена без ошибок.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyNetworkRequestEntity">
+            <summary>
+            Сохраняемые данные запроса пользователя к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.NetworkID">
+            <summary>
+            Идентификатор нейросети, к которой выполняется запрос.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.NetworkVersionID">
+            <summary>
+            Идентификатор используемой версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.NetworkStateID">
+            <summary>
+            Состояние нейросети, на основе которого формируется результат.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.UserID">
+            <summary>
+            Идентификатор пользователя, формирующего запрос к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.Status">
+            <summary>
+            Статус запроса к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.NetworkCost">
+            <summary>
+            Стоимость использования нейросети на момент создания запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.InputData">
+            <summary>
+            Данные, введённые пользователем, в соответствии с форматом манифеста.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.InputFiles">
+            <summary>
+            Содержит идентификаторы файлов, загруженных пользователем при формировании запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.ResultData">
+            <summary>
+            Данные результата запроса, в соответствии с форматом манифеста.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.StartTime">
+            <summary>
+            Время начала запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.EndTime">
+            <summary>
+            Время начала окончания.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.ErrorMessage">
+            <summary>
+            Сообщение об ошибке, возникшей при выполнении запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkRequestEntity.Succeed">
+            <summary>
+            Возвращает true, если обработка запроса была выполнена без ошибок.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyNetworkStateEntity">
+            <summary>
+            Сохраняемые данные состояния нейросети, сформированного в результате тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.NetworkID">
+            <summary>
+            Идентификатор нейросети, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.NetworkVersionID">
+            <summary>
+            Идентификатор версии нейросети, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.InternalID">
+            <summary>
+            Идентификатор состояния в рамках версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.TrainSchemeID">
+            <summary>
+            Идентификатор схемы тренировки, по которой было сформировано состояние нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.InitialStateID">
+            <summary>
+            Идентификатор состояния нейросети, на основе которого было инициализировано данное состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.Description">
+            <summary>
+            Описание состояния нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.StateDataID">
+            <summary>
+            Идентификатор данных состояния нейросети, через которое будут выполняться запросы к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkStateEntity.StateParameters">
+            <summary>
+            Параметры состояния нейросети.
+            Может содержать ошибку прохожжения тренировочной схему и других параметры.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyNetworkVersionEntity">
+            <summary>
+            Сохраняемые данные версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.NetworkID">
+            <summary>
+            Идентификатор нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.InternalID">
+            <summary>
+            Идентификатор версии в рамках нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.StatesInternalIDCounter">
+            <summary>
+            Инкремент, используемый для формирования идентификатора состояния версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.Name">
+            <summary>
+            Название версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.Description">
+            <summary>
+            Описание нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.IsActive">
+            <summary>
+            Возвращает true, если версия нейросети является активной.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.ManifestData">
+            <summary>
+            Манифест введённых пользователем данных и данных результата.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.ExecutableLibraryID">
+            <summary>
+            Идентификатор библиотеки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyNetworkVersionEntity.ActiveNetworkStateID">
+            <summary>
+            Идентификатор активного состояния нейросети, используемого для выполнения запросов к данной версии нейросети.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyProfileEntity">
+            <summary>
+            Сохраняемые данные профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.UserID">
+            <summary>
+            Идентификатор пользователя, к которому относится профиль.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.Email">
+            <summary>
+            Адрес электронной почты профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.ShowEmailForEveryone">
+            <summary>
+            Определяет, отображать ли адрес электронной почты для всех пользователей системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.Name">
+            <summary>
+            Имя профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.Bio">
+            <summary>
+            Общая информация о профиле.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.Country">
+            <summary>
+            Страна.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.City">
+            <summary>
+            Город.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.Address">
+            <summary>
+            Адрес.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.Picture">
+            <summary>
+            Изображение, соответствующее профилю.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyProfileEntity.Type">
+            <summary>
+            Тип профиля.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyTrainEpochParamsEntity">
+            <summary>
+            Сохраняемые данные параметров прохождения тренировочного сета для набора эпох.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainEpochParamsEntity.TrainSchemeID">
+            <summary>
+            Идентификатор схемы тренировок.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainEpochParamsEntity.StartEpochNumber">
+            <summary>
+            Начальная эпоха, которой соответствуют параметры прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainEpochParamsEntity.EndEpochNumber">
+            <summary>
+            Конечная эпоха, которой соответствуют параметры прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainEpochParamsEntity.DataSetID">
+            <summary>
+            Набор данных для тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainEpochParamsEntity.CustomParameters">
+            <summary>
+            Произвольные параметры тренировки.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyTrainSchemeEntity">
+            <summary>
+            Сохраняемые данные схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainSchemeEntity.NetworkID">
+            <summary>
+            Идентификатор нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyTrainSchemeEntity.Name">
+            <summary>
+            Название схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyDataSetEntity">
+            <summary>
+            Представляет сохраняемые данные набора данных обучения нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.Name">
+            <summary>
+            Название набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.ProfileID">
+            <summary>
+            Идентификатор профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.Cost">
+            <summary>
+            Стоимость использования набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.Rating">
+            <summary>
+            Рейтинг данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.Description">
+            <summary>
+            Описание набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.DataDescription">
+            <summary>
+            Описание данных, хранящихся в наборе.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.TrainSetID">
+            <summary>
+            Идентификатор тренировочного набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.TestSetID">
+            <summary>
+            Идентификатор набора данных для тестирования нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.SampleSetID">
+            <summary>
+            Идентификатор образца набора данных, доступного для скачивания.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyDataSetEntity.Published">
+            <summary>
+            Возвращает true, если набор данных опубликован.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Entity.SkyEntityContext">
+            <summary>
+            Представляет контекст работы с сохраняемыми данными.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Entity.SkyEntityContext.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            Инициализрует базу данных и таблицы.
+            </summary>
+            <param name="modelBuilder">Построитель модели.</param>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.Profiles">
+            <summary>
+            Данные профилей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.DataSets">
+            <summary>
+            Данные наборов данных нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.Networks">
+            <summary>
+            Данные нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.NetworksRequests">
+            <summary>
+            Данные запросов к нейросетям.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.TrainSchemes">
+            <summary>
+            Данные схем тренировок.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.TrainEpochParams">
+            <summary>
+            Данные параметров эпох.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.TrainRequests">
+            <summary>
+            Данные запросов тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.NetworksVersions">
+            <summary>
+            Данные версий нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Entity.SkyEntityContext.NetworksStates">
+            <summary>
+            Данные состояний сетей.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.ExtendedPropertyBag`1">
+            <summary>
+            Представляет класс для работы с расширенными свойствами объектов, 
+            которые могут задаваться сторонними модулями.
+            </summary>
+            <typeparam name="THolder">Тип объекта хранилища свойств.</typeparam>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.#ctor(`0)">
+            <summary>
+            Создает экземпляр ExtendedPropertyBag.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.ExtendedPropertyBag`1.Holder">
+            <summary>
+            Объект-хранилище свойств.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.ExtendedPropertyBag`1.PropertyValues">
+            <summary>
+            Словарь расширенных свойств объекта.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.ContainsProperty(System.String)">
+            <summary>
+            Проверяет наличие ключа расширенного свойства объекта в словаре свойств.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.RemoveProperty(System.String)">
+            <summary>
+            Удаляет ключ и значение расширенного свойства из словаря свойств. 
+            Если словарь свойств не содержит имени переданного свойства - ничего не происходит.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetPropertyContainer(System.String)">
+            <summary>
+            Возвращает контэйнер свойства из хранилища свойств.
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="T:Skychain.Models.Implementation.ExtendedPropertyBag`1.PropertyContainer">
+            <summary>
+            Представляет класс для хранения значения свойства объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.ExtendedPropertyBag`1.PropertyContainer.Name">
+            <summary>
+            Название свойства.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.ExtendedPropertyBag`1.PropertyContainer.Editable">
+            <summary>
+            Возвращает true, если свойство поддерживает операцию SetProperty для существующего значения и RemoveProperty.
+            Значение по умолчанию равно true.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.ExtendedPropertyBag`1.PropertyContainer.Value">
+            <summary>
+            Значение свойства.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.PropertyContainer.ToString">
+            <summary>
+            Текстовое представление экземпляра класса PropertyValue.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.PropertyContainer.CheckEditable">
+            <summary>
+            Проверяет возможность проведения операции изменения свойства.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetProperty(System.String)">
+            <summary>
+            Возвращает значение расширенного свойства. 
+            Если словарь свойств не содержит имени переданного свойства - возвращает null.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetProperty(System.String,System.Object)">
+            <summary>
+            Возвращает значение расширенного свойства. 
+            Если словарь свойств не содержит имени переданного свойства - возвращает null.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства.</param>
+            <param name="defaultValue">Значение свойства по умолчанию. 
+            Устанавливается, если свойство не содержится в словаре свойств.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetProperty``1(System.String)">
+            <summary>
+            Возвращает значение расширенного свойства. 
+            Если словарь свойств не содержит имени переданного свойства - возвращает null.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства.</param>
+            <typeparam name="T">Тип значения расширенного свойства.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetProperty``1(System.String,``0)">
+            <summary>
+            Возвращает значение расширенного свойства. 
+            Если словарь свойств не содержит имени переданного свойства - возвращает null.
+            </summary>
+            <typeparam name="T">Тип значения расширенного свойства.</typeparam>
+            <param name="propertyName">Имя расширенного свойства.</param>
+            <param name="defaultValue">Значение свойства по умолчанию. 
+            Устанавливается, если свойство не содержится в словаре свойств.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.SetProperty(System.String,System.Object)">
+            <summary>
+            Устанаваливает значение расширенного свойства объекта.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства.</param>
+            <param name="propertyValue">Значение свойства.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.SetProperty(System.String,System.Object,System.Boolean)">
+            <summary>
+            Устанаваливает значение расширенного свойства объекта.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства.</param>
+            <param name="propertyValue">Значение свойства.</param>
+            <param name="editable">При переданном true, позволяет изменять/удалять значение свойства после его первичной установки.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetSingleton(System.String,Skychain.Models.Implementation.ExtendedPropertyBag{`0}.SingletonConstructor)">
+            <summary>
+            Возвращает гарантированно единственный экземпляр класса на уровне данного экземпляра ExtendedProperties и ключа, заданного в параметре propertyName, 
+            и создаваемый при первом обращении методом, переданным в параметре singletonConstructor.
+            Данный метод не является потокобезопасным. Корректность работы метода гарантируется при однопоточном использовании.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства, в котором хранится одиночный объект.</param>
+            <param name="singletonConstructor">Метод, инициализирующий одиночный объект.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetSingleton(System.String,Skychain.Models.Implementation.ExtendedPropertyBag{`0}.SingletonConstructor,System.Boolean)">
+            <summary>
+            Возвращает гарантированно единственный экземпляр класса на уровне данного экземпляра ExtendedProperties и ключа, заданного в параметре propertyName, 
+            и создаваемый при первом обращении методом, переданным в параметре singletonConstructor.
+            Данный метод не является потокобезопасным. Корректность работы метода гарантируется при однопоточном использовании.
+            </summary>
+            <param name="propertyName">Имя расширенного свойства, в котором хранится одиночный объект.</param>
+            <param name="singletonConstructor">Метод, инициализирующий одиночный объект.</param>
+            <param name="resetable">При переданном true, позволяет осуществить сброс singleton-свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetSingleton``1(System.String,Skychain.Models.Implementation.ExtendedPropertyBag{`0}.SingletonConstructor)">
+            <summary>
+            Возвращает гарантированно единственный экземпляр класса на уровне данного экземпляра ExtendedProperties и ключа, заданного в параметре propertyName, 
+            и создаваемый при первом обращении методом, переданным в параметре singletonConstructor.
+            Данный метод не является потокобезопасным. Корректность работы метода гарантируется при однопоточном использовании.
+            </summary>
+            <typeparam name="T">Тип объекта-одиночки.</typeparam>
+            <param name="propertyName">Имя расширенного свойства, в котором хранится одиночный объект.</param>
+            <param name="singletonConstructor">Метод, инициализирующий одиночный объект.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.GetSingleton``1(System.String,Skychain.Models.Implementation.ExtendedPropertyBag{`0}.SingletonConstructor,System.Boolean)">
+            <summary>
+            Возвращает гарантированно единственный экземпляр класса на уровне данного экземпляра ExtendedProperties и ключа, заданного в параметре propertyName, 
+            и создаваемый при первом обращении методом, переданным в параметре singletonConstructor.
+            Данный метод не является потокобезопасным. Корректность работы метода гарантируется при однопоточном использовании.
+            </summary>
+            <typeparam name="T">Тип объекта-одиночки.</typeparam>
+            <param name="propertyName">Имя расширенного свойства, в котором хранится одиночный объект.</param>
+            <param name="singletonConstructor">Метод, инициализирующий одиночный объект.</param>
+            <param name="resetable">При переданном true, позволяет осуществить сброс singleton-свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.ResetSingleton(System.String)">
+            <summary>
+            Сбрасывает значение инициализированного singleton-свойства.
+            </summary>
+            <param name="propertyName">Название singleton-свойства.</param>
+        </member>
+        <member name="T:Skychain.Models.Implementation.ExtendedPropertyBag`1.SingletonConstructor">
+            <summary>
+            Создаёт экземпляр объекта, связанный с экземпляром holder.
+            </summary>
+            <param name="holder">Экземпляр, с которым связан создаваемый экземпляр.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.ExtendedPropertyBag`1.ExecuteOnce(System.String,System.Action{`0})">
+            <summary>
+            Выполняет действие один раз для заданного ключа.
+            </summary>
+            <param name="executionKey">Ключ выполнения действия.</param>
+            <param name="codeToExecute">Код выполняемый один раз по заданному ключу.</param>
+        </member>
+        <member name="T:Skychain.Models.Implementation.OperationContextManager">
+            <summary>
+            Предоставляет методы для работа с контекстами операции.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.#ctor">
+            <summary>
+            Создает экземпляр OperationContextManager.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.OperationContextManager.Contexts">
+            <summary>
+            Коллекция конекстов операций.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.BeginContext(System.String)">
+            <summary>
+            Стартует контекст операции с названием operationName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.EndContext(System.String)">
+            <summary>
+            Завершает контекст операции с названием operationName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.CheckContext(System.String)">
+            <summary>
+            Проверяем наличие текущего контекста выполнения операции с названием contextName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.IsContext(System.String)">
+            <summary>
+            Возвращает true, если в данный момент присутствует контекст выполнения операции с названием contextName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.BeginMultiThreadContext(System.String)">
+            <summary>
+            Стартует многопоточный контекст операции с названием operationName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.EndMultiThreadContext(System.String)">
+            <summary>
+            Завершает контекст операции с названием operationName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.CheckMultiThreadContext(System.String)">
+            <summary>
+            Проверяем наличие текущего контекста выполнения операции с названием contextName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContextManager.IsMultiThreadContext(System.String)">
+            <summary>
+            Возвращает true, если в данный момент присутствует контекст выполнения операции с названием contextName.
+            </summary>
+            <param name="contextName">Название контекста операции.</param>
+        </member>
+        <member name="T:Skychain.Models.Implementation.OperationContext">
+            <summary>
+            Представляет контекст операции.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContext.#ctor(System.String,System.Boolean,Skychain.Models.Implementation.OperationContextManager)">
+            <summary>
+            Создает экземпляр OperationContext.
+            </summary>
+            <param name="name">Название контекста операции.</param>
+            <param name="isMultiThread">Параметр не поддерживается.</param>
+            <param name="contextManager">Менеджер контекстов.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.OperationContext.Name">
+            <summary>
+            Название контекста выполняемой операции.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.OperationContext.ContextManager">
+            <summary>
+            Менеджер контекстов операций.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.OperationContext.UsageCounter">
+            <summary>
+            Счетчик использования контекста..
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContext.Dispose">
+            <summary>
+            Прекращает контекст данной операции.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.OperationContext.ToString">
+            <summary>
+            Строковое представление экземпляра класса Context.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Skychain.Models.Implementation.PropertyChangeInfo">
+            <summary>
+            Предоставляет информацию об изменении свойств экземпляров классов.
+            Содержит методы установки изменений свойств экземпляров.
+            Экземпляры класса не являются потокобезопасными.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.#ctor">
+            <summary>
+            Создаёт новый экземпляр PropertyChangeInfo.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.#ctor(System.Boolean)">
+            <summary>
+            Создаёт новый экземпляр PropertyChangeInfo.
+            </summary>
+            <param name="equalEmptyStringToNull">При установленном значении true результат сравнения пустой строки и строки равной null является равенством.
+            При отсутствии параметра, значение по умолчанию принимается равным true.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.EqualEmptyStringToNull">
+            <summary>
+            При установленном значении true результат сравнения пустой строки и строки равной null является равенством.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.PropertyValues">
+            <summary>
+            Регистрочувствительная коллекция значений свойств экземпляра.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.SetPropertyChange``1(System.String,``0,``0)">
+            <summary>
+            Устанавливает исходное и новое значения свойства.
+            </summary>
+            <typeparam name="T">Тип устанавливаемого свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <param name="originalValue">Исходное значение свойства.</param>
+            <param name="newValue">Новое значение свойства.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.SetPropertyChange(System.String,System.Type,System.Object,System.Object)">
+            <summary>
+            Устанавливает исходное и новое значения свойства.
+            </summary>
+            <param name="propertyName">Название свойства.</param>
+            <param name="propertyType">Тип значения свойства.</param>
+            <param name="originalValue">Исходное значение свойства.</param>
+            <param name="newValue">Новое значение свойства.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.IsPropertyChanged(System.String)">
+            <summary>
+            Возвращает true, если значение свойства изменилось.
+            </summary>
+            <param name="propertyName">Название проверяемого свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.IsPropertyChanged(System.String,System.Boolean)">
+            <summary>
+            Возвращает true, если значение свойства изменилось.
+            </summary>
+            <param name="propertyName">Название проверяемого свойства.</param>
+            <param name="ignoreCase">При установленном значении true, не учитиывает регистр при сравнении строковых значений. Может быть использовано только при сравнении строковых значений.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.IsPropertySet(System.String)">
+            <summary>
+            Возвращает true, если значение было установлено в контексте выполнения кода.
+            </summary>
+            <param name="propertyName">Название проверяемого свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.GetOriginalValue(System.String)">
+            <summary>
+            Возвращает оригинальное значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.GetOriginalValue``1(System.String)">
+            <summary>
+            Возвращает оригинальное значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.GetOriginalValue``1(System.String,``0)">
+            <summary>
+            Возвращает оригинальное значение свойства, установленное в свойстве до его изменения.
+            Возвращает значение свойства по умолчанию, указанное в параметре defaultOriginalValue, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <param name="defaultOriginalValue">Исходное значение свойства по умолчанию, возращаемое в качестве результата, если значение свойства не было ни разу изменено.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.GetNewValue(System.String)">
+            <summary>
+            Возвращает новое значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.GetNewValue``1(System.String)">
+            <summary>
+            Возвращает новое значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.GetNewValue``1(System.String,``0)">
+            <summary>
+            Возвращает новое значение свойства, установленное в свойстве до его изменения.
+            Возвращает значение свойства по умолчанию, указанное в параметре defaultNewValue, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <param name="defaultNewValue">Новое значение свойства по умолчанию, возращаемое в качестве результата, если значение свойства не было ни разу изменено.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.ResetPropertyChange(System.String)">
+            <summary>
+            Сбрасывает статус исходного и нового значения свойства.
+            </summary>
+            <param name="propertyName">Название свойства.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.ResetAllPropertyChanges">
+            <summary>
+            Сбрасывает статус исходного и нового значения всех свойств экземпляра.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo">
+            <summary>
+            Представляет исходное и изменённое значения свойства.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.PropertyName">
+            <summary>
+            Название свойства.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.ValueType">
+            <summary>
+            Тип значения свойства.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.ChangeInfo">
+            <summary>
+            Экземпляр информации об изменении свойств, в который добавлено данное свойство.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.IsString">
+            <summary>
+            Возвращает true, если тип свойства является string.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.IsXmlElement">
+            <summary>
+            Возвращает true, если тип свойства является XmlNode или XmlElement.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.OriginalValue">
+            <summary>
+            Исходное значение свойства.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.NewValue">
+            <summary>
+            Новое значение свойства.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.SetValues(System.Object,System.Object)">
+            <summary>
+            Устанавливает исходное и новое значения свойства.
+            </summary>
+            <param name="originalValue">Исходное значение свойства.</param>
+            <param name="newValue">Новое значение свойства.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.PropertyChangeInfo.ValueInfo.IsValueChanged(System.Boolean)">
+            <summary>
+            Возвращает true, если значение свойства измененилось.
+            </summary>
+            <param name="ignoreCase">При установленном значении true, не учитиывает регистр при сравнении строковых значений.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Skychain.Models.Implementation.IPropertyChangeInfo">
+            <summary>
+            Предоставляет информацию об изменении свойств экземпляров классов.
+            Экземпляры класса не являются потокобезопасными.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.IPropertyChangeInfo.EqualEmptyStringToNull">
+            <summary>
+            При установленном значении true результат сравнения пустой строки и строки равной null является равенством.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.IsPropertyChanged(System.String)">
+            <summary>
+            Возвращает true, если значение свойства изменилось.
+            </summary>
+            <param name="propertyName">Название проверяемого свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.IsPropertyChanged(System.String,System.Boolean)">
+            <summary>
+            Возвращает true, если значение свойства изменилось.
+            </summary>
+            <param name="propertyName">Название проверяемого свойства.</param>
+            <param name="ignoreCase">При установленном значении true, не учитиывает регистр при сравнении строковых значений. Может быть использовано только при сравнении строковых значений.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.IsPropertySet(System.String)">
+            <summary>
+            Возвращает true, если значение было установлено в контексте выполнения кода.
+            </summary>
+            <param name="propertyName">Название проверяемого свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.GetOriginalValue(System.String)">
+            <summary>
+            Возвращает оригинальное значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.GetOriginalValue``1(System.String)">
+            <summary>
+            Возвращает оригинальное значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.GetOriginalValue``1(System.String,``0)">
+            <summary>
+            Возвращает оригинальное значение свойства, установленное в свойстве до его изменения.
+            Возвращает значение свойства по умолчанию, указанное в параметре defaultOriginalValue, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <param name="defaultOriginalValue">Исходное значение свойства по умолчанию, возращаемое в качестве результата, если значение свойства не было ни разу изменено.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.GetNewValue(System.String)">
+            <summary>
+            Возвращает новое значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.GetNewValue``1(System.String)">
+            <summary>
+            Возвращает новое значение свойства, установленное в свойстве до его изменения.
+            Генерирует исключение, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.IPropertyChangeInfo.GetNewValue``1(System.String,``0)">
+            <summary>
+            Возвращает новое значение свойства, установленное в свойстве до его изменения.
+            Возвращает значение свойства по умолчанию, указанное в параметре defaultNewValue, если значение свойства не было ни разу изменено.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="propertyName">Название свойства.</param>
+            <param name="defaultNewValue">Новое значение свойства по умолчанию, возращаемое в качестве результата, если значение свойства не было ни разу изменено.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyFile">
+            <summary>
+            Представляет файле в хранилище.
+            Содержит методы чтения, создания, обновления, удаления файла и проверки наличия файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.ID">
+            <summary>
+            Идентификатор файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.IsNew">
+            <summary>
+            Возвращает true, если файл является новым и не имеет идентификатора.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.FolderName">
+            <summary>
+            Название папки хранилища, в которой содержится файл.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.ReadOnly">
+            <summary>
+            Файл только для чтения.
+            При установленном значении true загрузка новой версии файла запрещена.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.Name">
+            <summary>
+            Имя файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.Size">
+            <summary>
+            Размер файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.TimeCreated">
+            <summary>
+            Дата создания файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.TimeModified">
+            <summary>
+            Дата последнего изменения файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.Folder">
+            <summary>
+            Папка хранилища, в которой содержится файл.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.FileInternal">
+            <summary>
+            Файл в хранилище.
+            Генерирует исключение в случае отсутствия файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.File">
+            <summary>
+            Файл в хранилище.
+            Генерирует исключение в случае отсутствия файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.Exists">
+            <summary>
+            Возвращает true, если файл существует в хранилище.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyFile.CheckExists">
+            <summary>
+            Генерирует исключение в случае отсутствия файла.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyFile.Upload(System.String,System.Byte[])">
+            <summary>
+            Загружает новый файл в хранилище, если файл не существует.
+            Генерирует исключение в случае, если файл существует.
+            </summary>
+            <param name="fileName">Название загружаемого файла.</param>
+            <param name="content">Содержимое загружаемого файла.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyFile.Upload(System.String,System.IO.Stream)">
+            <summary>
+            Загружает новый файл в хранилище, если файл не существует.
+            Генерирует исключение в случае, если файл существует.
+            </summary>
+            <param name="fileName">Название загружаемого файла.</param>
+            <param name="fileStream">Поток данных загружаемого файла.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyFile.Open">
+            <summary>
+            Открывает поток чтения данных файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyFile.Content">
+            <summary>
+            Контент файла.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyFile.Delete">
+            <summary>
+            Удаляет файл из хранилища.
+            Генерирует исключение в случае, если файл является файлом только для чтения.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyFile.GetSessionLink">
+            <summary>
+            Возвращает сессионную ссылку на файл.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyFile.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyNetwork">
+            <summary>
+            Представляет нейросеть.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.ProfileID">
+            <summary>
+            Идентификатор профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.Profile">
+            <summary>
+            Профиль, которому принадлежит набор данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.Name">
+            <summary>
+            Название нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.Description">
+            <summary>
+            Описание нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.Cost">
+            <summary>
+            Стоимость использования нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.Published">
+            <summary>
+            Возвращает true, если набор данных опубликован.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.CheckPublished">
+            <summary>
+            Проверяет, является ли набор данных опубликованным, в ином случае генерирует исключение.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.StateData">
+            <summary>
+            Данные текущего состояния нейросети.
+            Изменяются после выполнения тренировки сети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.Rating">
+            <summary>
+            Рейтинг нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.UsagesCount">
+            <summary>
+            Количество использований сети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.ActiveVersion">
+            <summary>
+            Активная версия нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.CheckActiveVersion">
+            <summary>
+            Проверяет наличие активной версии нейросети.
+            Генерирует исключение в случае отсутствия активной версии.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.CreateRequest(Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый экземляр запроса к активному состоянию активной версии данной нейросети.
+            </summary>
+            <param name="user">Пользователь, формирующий запрос.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.Versions">
+            <summary>
+            Версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.CreateVersion">
+            <summary>
+            Создаёт новый экземпляр версии нейросети, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.GetVersionsInternalID">
+            <summary>
+            Возвращает новый идентификатор версии нейросети в рамках нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.VersionsByInternalID">
+            <summary>
+            Словарь версий нейросети, сформированный по ключу в виде идентификатора нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.GetVersion(System.Int32,System.Boolean)">
+            <summary>
+            Возвращает версию нейросети по идентификатору версии в рамках нейросети.
+            </summary>
+            <param name="versionInternalID">Идентификатор версии в рамках нейсросети.</param>
+            <param name="throwNotFoundException">Генерирует исключение в случае отсутствия версии с заданным идентификатором в рамках нейросети.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.AddCreatedVersion(Skychain.Models.Implementation.SkyNetworkVersion)">
+            <summary>
+            Добавляет созданную версию в словарь версий по внутренним идентификаторам.
+            </summary>
+            <param name="createdVersion">Созданная версия нейросети.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetwork.TrainSchemes">
+            <summary>
+            Схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.CreateTrainScheme">
+            <summary>
+            Создаёт новый экземпляр схемы тренировки нейросети, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetwork.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyTrainRequest">
+            <summary>
+            Представляет запрос тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.NetworkID">
+            <summary>
+            Идентификатор нейросети, для которой выполняется тренировка.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.Network">
+            <summary>
+            Нейросеть, для которой выполняется тренировка.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.NetworkVersionID">
+            <summary>
+            Идентификатор тренируемой версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.NetworkVersion">
+            <summary>
+            Тренируемая версия нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.TrainSchemeID">
+            <summary>
+            Идентификатор схемы тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.TrainScheme">
+            <summary>
+            Схема тренировки.
+            Возвращает null в случае удаления схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.InitialStateID">
+            <summary>
+            Идентификатор состояния нейросети, на основе которого выполняется тренировка.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.InitialState">
+            <summary>
+            Состояние нейросети, на основе которого выполняется тренировка.
+            Возвращает null в случае, если тренировка является первичной.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.ResultStateID">
+            <summary>
+            Состояние нейросети, сформированное в результате тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.ResultStateDescription">
+            <summary>
+            Описание результирующего состояния.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.ResultState">
+            <summary>
+            Состояние нейросети, сформированное в результате тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.UserID">
+            <summary>
+            Идентификатор пользователя, выполняющего тренировку нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.User">
+            <summary>
+            Пользователь, выполняющий тренировку нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.Status">
+            <summary>
+            Статус запроса тренировки.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.CheckResultState">
+            <summary>
+            Проверяет наличие сформированного состояния нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.StartTime">
+            <summary>
+            Время начала запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.EndTime">
+            <summary>
+            Время начала окончания.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.TrainLog">
+            <summary>
+            Лог, записываемый во время выполнения тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.ErrorMessage">
+            <summary>
+            Сообщение об ошибке, возникшей при выполнении запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainRequest.Succeed">
+            <summary>
+            Возвращает true, если обработка запроса была выполнена без ошибок.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.CheckCompletedPropertiesUndefined">
+            <summary>
+            Проверяет, что незаполнены свойства, которые должны быть заполнены при завершении запроса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.CheckStatus(Skychain.Models.SkyTrainRequestStatus)">
+            <summary>
+            Проверет установленный статус запроса.
+            Генерирует исключение, если статус не соответствует переданному статусу.
+            </summary>
+            <param name="status">Проверяемый статус.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.Create">
+            <summary>
+            Создаёт запрос к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.Process">
+            <summary>
+            Устаналивает статус обработки запроса нейросетью в данный момент времени.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.Train">
+            <summary>
+            Выполняет тренировку.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.WriteTrainLog(System.String)">
+            <summary>
+            Записывает сообщение в лог тренировки нейросети.
+            </summary>
+            <param name="message">Текст записываемого в лог сообщения.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.Complete">
+            <summary>
+            Устанавливает статус завершения запроса к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainRequest.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyNetworkRequest">
+            <summary>
+            Представляет запрос пользователя к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.NetworkID">
+            <summary>
+            Идентификатор нейросети, к которой выполняется запрос.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.Network">
+            <summary>
+            Нейросеть, к которой выполняется запрос.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.NetworkVersionID">
+            <summary>
+            Идентификатор используемой версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.NetworkVersion">
+            <summary>
+            Используемая версия нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.NetworkStateID">
+            <summary>
+            Состояние нейросети, на основе которого формируется результат.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.NetworkState">
+            <summary>
+            Состояние нейросети, на основе которого формируется результат.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.UserID">
+            <summary>
+            Идентификатор пользователя, формирующего запрос к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.User">
+            <summary>
+            Пользователь, формирующий запрос к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.Status">
+            <summary>
+            Статус запроса к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.NetworkCost">
+            <summary>
+            Стоимость использования нейросети на момент создания запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.InputData">
+            <summary>
+            Данные, введённые пользователем, в соответствии с форматом манифеста.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.CheckInputData">
+            <summary>
+            Проверяет наличие данных, введённых пользователем, при формировании запроса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.CreateInputFile">
+            <summary>
+            Создаёт экземпляр для загрузки файла, выбранного пользователем на форме входных данных запроса к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.InputFiles">
+            <summary>
+            Коллекция файлов, загруженных пользователем при формировании запроса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.GetInputFile(System.Guid)">
+            <summary>
+            Возвращает экземпляр файла, выбранного пользователем на форме входных данных запроса к нейросети.
+            Метод всегда возвращает значение, отличающееся от null.
+            </summary>
+            <param name="fileID">Идентификатор файла.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.ResultData">
+            <summary>
+            Данные результата запроса, в соответствии с форматом манифеста.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.CheckResultData">
+            <summary>
+            Проверяет наличие данных результата запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.StartTime">
+            <summary>
+            Время начала запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.EndTime">
+            <summary>
+            Время начала окончания.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.ErrorMessage">
+            <summary>
+            Сообщение об ошибке, возникшей при выполнении запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkRequest.Succeed">
+            <summary>
+            Возвращает true, если обработка запроса была выполнена без ошибок.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.CheckCompletedPropertiesUndefined">
+            <summary>
+            Проверяет, что незаполнены свойства, которые должны быть заполнены при завершении запроса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.CheckStatus(Skychain.Models.SkyNetworkRequestStatus)">
+            <summary>
+            Проверет установленный статус запроса.
+            Генерирует исключение, если статус не соответствует переданному статусу.
+            </summary>
+            <param name="status">Проверяемый статус.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.Create">
+            <summary>
+            Создаёт запрос к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.Process">
+            <summary>
+            Устаналивает статус обработки запроса нейросетью в данный момент времени.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.ComputeResult">
+            <summary>
+            Вычисляет результат обработки запроса к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.Complete">
+            <summary>
+            Устанавливает статус завершения запроса к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkRequest.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyNetworkState">
+            <summary>
+            Представляет состояние нейросети, сформированное в результате тренировки.
+            Используется для выполнения запросов к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.NetworkID">
+            <summary>
+            Идентификатор нейросети, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.Network">
+            <summary>
+            Версия нейросети, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.NetworkVersionID">
+            <summary>
+            Идентификатор версии нейросети, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.NetworkVersion">
+            <summary>
+            Версия нейросети, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.InternalID">
+            <summary>
+            Идентификатор состояния в рамках версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkState.CheckInternalID">
+            <summary>
+            Проверяет наличие идентификатора состояния в рамках версии нейросети.
+            Генерирует исключение в случае отсутствия.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.TrainSchemeID">
+            <summary>
+            Идентификатор схемы тренировки, по которой было сформировано состояние нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.TrainScheme">
+            <summary>
+            Схема тренировки, по которой было сформировано состояние нейросети.
+            Возвращает null в случае удаления схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.InitialStateID">
+            <summary>
+            Идентификатор состояния нейросети, на основе которого было инициализировано данное состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.InitialState">
+            <summary>
+            Состояние нейросети, на основе которого было инициализировано данное состояние.
+            Возвращает null в случае, если данное состояние является первичным.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.Description">
+            <summary>
+            Описание состояния нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.DisplayName">
+            <summary>
+            Отображаемое название состояния нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.DerivedStates">
+            <summary>
+            Коллекция состояний сети, инициализированных на основе данного состояния.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.StateData">
+            <summary>
+            Данные состояния нейросети, через которое будут выполняться запросы к нейросети.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkState.CheckStateData">
+            <summary>
+            Проверяет наличие данных состояния нейросети.
+            Генерирует исключение в случае отсутствия.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkState.StateParameters">
+            <summary>
+            Параметры состояния нейросети.
+            Может содержать ошибку прохождения тренировочной схему и другие параметры.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkState.CreateRequest(Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый экземляр запроса к данному состоянию нейросети.
+            </summary>
+            <param name="user">Пользователь, формирующий запрос.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkState.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkState.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkState.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyNetworkVersion">
+            <summary>
+            Представляет версию нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.NetworkID">
+            <summary>
+            Идентификатор нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.Network">
+            <summary>
+            Нейросеть.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.InternalID">
+            <summary>
+            Идентификатор версии в рамках нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.CheckInternalID">
+            <summary>
+            Проверяет наличие идентификатора версии в рамках нейросети.
+            Генерирует исключение в случае отсутствия.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.Name">
+            <summary>
+            Название набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.Description">
+            <summary>
+            Описание набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.IsActive">
+            <summary>
+            Возвращает true, если версия нейросети является активной.
+            При сохранении установленного значения true в базу данных (при вызове Update), 
+            данный флаг устанавливается в false у текущей активной версии нейросети, отличающейся от данной.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.CheckIsActive">
+            <summary>
+            Проверяет, является ли версия нейросети активной, в ином случае генерирует исключение.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.ManifestData">
+            <summary>
+            Манифест введённых пользователем данных и данных результата.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.TensorLibrary">
+            <summary>
+            Библиотека тензора нейросети.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.NetworkStates">
+            <summary>
+            Состояния нейросети, соответствующие данной версии.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.CreateNetworkState(System.Int32,System.Int32)">
+            <summary>
+            Создаёт новый экземпляр состояния нейросети для заданной схемы тренировок.
+            Состояние нейросети может быть создано на основе другого состояния.
+            </summary>
+            <param name="trainSchemeID">Идентификатор схемы тренировок, для которого создаётся состояние нейросети.</param>
+            <param name="initialStateID">Идентификатор состояния нейросети, на основе которого создаётся состояние. 
+            Если состояние является первичным, необходимо передать значение 0.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.GetStateInternalID">
+            <summary>
+            Возвращает новый идентификатор состояния нейросети в рамках версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.ActiveNetworkStateID">
+            <summary>
+            Идентификатор активного состояния нейросети, используемого для выполнения запросов к данной версии нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyNetworkVersion.ActiveNetworkState">
+            <summary>
+            Активное состояние нейросети, используемое для выполнения запросов к данной версии нейросети.
+            Возвращает null, если для активное состояние не задано для данной версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.ChangeActiveNetworkState(System.Int32)">
+            <summary>
+            Устанавливает активное состояние нейросети, используемое для выполнения запросов к данной версии нейросети.
+            </summary>
+            <param name="networkStateID">Идентификатор состояния нейросети, устанавливаемого в качестве активного для версии нейросети.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.CheckActiveNetworkState">
+            <summary>
+            Проверяет наличие активного состояния версии нейросети.
+            Генерирует исключение в случае отсутствия активного состояния версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.CreateRequest(Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый экземляр запроса к активному состоянию данной версии нейросети.
+            </summary>
+            <param name="user">Пользователь, формирующий запрос.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.CreateTrainRequest(System.Int32,System.Int32,Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый запрос тренировки нейросети для заданной схемы тренировок.
+            Тренировка нейросети может быть инициализирована на основе другого состояния нейросети.
+            </summary>
+            <param name="trainSchemeID">Идентификатор схемы тренировок.</param>
+            <param name="initialStateID">Идентификатор состояния нейросети, на основе которого будет выполнена тренировка. 
+            Если тренировка является первичной, необходимо передать значение 0.</param>
+            <param name="user">Идентификатор схемы тренировок.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyNetworkVersion.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyObjectAdapterRepository">
+            <summary>
+            Содержит адаптеры всех типов объектов системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapterRepository.GetObjectAdapter``3">
+            <summary>
+            Возвращает адаптер объектов системы.
+            </summary>
+            <typeparam name="TObject">Тип объекта системы.</typeparam>
+            <typeparam name="TEntity">Тип сохраняемого объекта.</typeparam>
+            <typeparam name="IObject">Тип интерфейса объекта.</typeparam>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapterRepository.ExecuteQuery(System.Action{Skychain.Models.Entity.SkyEntityContext})">
+            <summary>
+            Выполняет метод в контексте подключения к базе данных.
+            </summary>
+            <param name="action">Выполняемое действие.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.Profiles">
+            <summary>
+            Адаптер профилей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.DataSets">
+            <summary>
+            Адаптер наборов данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.Networks">
+            <summary>
+            Адаптер нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.NetworkVersions">
+            <summary>
+            Адаптер версий нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.TrainSchemes">
+            <summary>
+            Адаптер схем тренировок нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.TrainEpochParams">
+            <summary>
+            Адаптер параметров прохождения тренировочного сета для набора эпох.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.TrainRequests">
+            <summary>
+            Адаптер запросов тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.NetworkStates">
+            <summary>
+            Адаптер состояний нейросети, сформированных в результате тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapterRepository.NetworkRequests">
+            <summary>
+            Адаптер запросов пользователей к нейросетям.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyProfile">
+            <summary>
+            Представляет профиль пользователя.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.UserID">
+            <summary>
+            Идентификатор пользователя, к которому относится профиль.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.User">
+            <summary>
+            Пользователь, к которому относится профиль.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Email">
+            <summary>
+            Адрес электронной почты профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.ShowEmailForEveryone">
+            <summary>
+            Определяет, отображать ли адрес электронной почты для всех пользователей системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Name">
+            <summary>
+            Имя профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Bio">
+            <summary>
+            Общая информация о профиле.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Country">
+            <summary>
+            Страна.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.City">
+            <summary>
+            Город.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Picture">
+            <summary>
+            Изображение, соответствующее профилю.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Address">
+            <summary>
+            Адрес
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Type">
+            <summary>
+            Тип профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.DataSets">
+            <summary>
+            Наборы данных, принадлежащие профилю.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyProfile.CreateDataSet">
+            <summary>
+            Создаёт новый экземпляр набора данных для использования в нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyProfile.Networks">
+            <summary>
+            Нейросети, принадлежащие профилю.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyProfile.CreateNetwork">
+            <summary>
+            Создаёт новый экземпляр нейросети, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyProfile.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyProfile.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyProfile.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyTrainEpoch">
+            <summary>
+            Представляет эпоху прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpoch.EpochNumber">
+            <summary>
+            Номер эпохи.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpoch.Params">
+            <summary>
+            Параметры прохождения эпохи.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpoch.TrainScheme">
+            <summary>
+            Схема тренировки нейросети, к которой относится эпоха.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainEpoch.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyTrainEpochParams">
+            <summary>
+            Представляет параметры прохождения тренировочного сета для набора эпох.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.TrainSchemeID">
+            <summary>
+            Идентификатор схемы тренировок.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.TrainScheme">
+            <summary>
+            Схема тренировок, к которой относятся параметры прохождения.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.StartEpochNumber">
+            <summary>
+            Начальная эпоха, которой соответствуют параметры прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.StartEpochNumberChanged">
+            <summary>
+            Возвращает true, если значение свойства StartEpochNumber было изменено.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.EndEpochNumber">
+            <summary>
+            Конечная эпоха, которой соответствуют параметры прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.EndEpochNumberChanged">
+            <summary>
+            Возвращает true, если значение свойства EndEpochNumber было изменено.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.DataSetInternal">
+            <summary>
+            Набор данных для тренировки.
+            Генерирует исключение в случае отсутствия набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.DataSet">
+            <summary>
+            Набор данных для тренировки.
+            Генерирует исключение в случае отсутствия набора данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainEpochParams.ChangeDataSet(System.Int32)">
+            <summary>
+            Устанавливает набор данных для тренировки сети.
+            </summary>
+            <param name="dataSetID">Идентификатор набора данных.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.HasDataSet">
+            <summary>
+            Возвращает true, если в параметрах тренировки указан набор данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainEpochParams.CustomParameters">
+            <summary>
+            Произвольные параметры тренировки.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainEpochParams.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainEpochParams.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyTrainScheme">
+            <summary>
+            Представляет схему тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainScheme.NetworkID">
+            <summary>
+            Идентификатор нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainScheme.Network">
+            <summary>
+            Нейросеть, для которой соответствует данная схема тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainScheme.Name">
+            <summary>
+            Название схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainScheme.Epochs">
+            <summary>
+            Эпохи прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyTrainScheme.EpochParamsSet">
+            <summary>
+            Коллекция параметров прохождения тренировочного сета для наборов эпох.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.CreateEpochParams">
+            <summary>
+            Создаёт экземпляр параметров прохождения тренировочного сета для набора эпох, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.RunUpdateEpochsContext">
+            <summary>
+            Запускает контекст операции обновления номеров эпох.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.CheckUpdateEpochsContext">
+            <summary>
+            Проверяет, что код выполняется в контексте операции обновления номеров эпох.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.UpdateEpochs">
+            <summary>
+            Проверяет корректность и обновляет номера эпох, а также обновляет остальные свойства для всех параметров эпох.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.CheckEpochNumbers">
+            <summary>
+            Проверяет корректность номеров эпох в параметрах эпох.
+            Генерирует исключение в случае непоследовательной нумерации эпох.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyTrainScheme.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyUser">
+            <summary>
+            Представляет пользователя системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyUser.ID">
+            <summary>
+            Идентификатор пользователя.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyUser.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyUser.ProfileInternal">
+            <summary>
+            Профиль пользователя.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyUser.Profile">
+            <summary>
+            Профиль пользователя.
+            Генерирует исключение в случае отсутствия профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyUser.HasProfile">
+            <summary>
+            Возвращает true, если для пользователя создан профиль.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyUser.CheckProfile">
+            <summary>
+            Проверяет наличие профиля.
+            Генерирует исключение в случае отсутствия профиля.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyUser.CreateProfile">
+            <summary>
+            Создаёт новый экземпляр профиля, соответствующего пользователю системы, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyUser.RecentRequests">
+            <summary>
+            Запросы пользователей к нейросетям.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyUser.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyObject`3">
+            <summary>
+            Представляет базовый тип объекта системы.
+            </summary>
+            <typeparam name="TObject">Тип объекта системы.</typeparam>
+            <typeparam name="TEntity">Тип сохраняемого объекта.</typeparam>
+            <typeparam name="IObject">Тип интерфейса объекта.</typeparam>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.Entity">
+            <summary>
+            Сохраняемые данные экземпляра класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.Adapter">
+            <summary>
+            Адаптер объектов данного типа.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.InstanceType">
+            <summary>
+            Тип объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.ID">
+            <summary>
+            Уникальный идентификатор объекта в базе данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.IsNew">
+            <summary>
+            Возвращает true, если объект является новым и не был сохранён в базу данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.VersionNumber">
+            <summary>
+            Номер версии объекта, увеличиваемый при изменении любого из свойств набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.TimeCreated">
+            <summary>
+            Дата и время сохранения нового объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.TimeModified">
+            <summary>
+            Дата и время последнего изменения свойств объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.JustCreated">
+            <summary>
+            Возвращает true, если экземпляр объекта был создан в текущем контексте выполнения кода.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObject`3.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObject`3.Delete">
+            <summary>
+            Удаляет объект из базы данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.Deleted">
+            <summary>
+            Возвращает true, если объект был удалён в контексте выполнения кода.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObject`3.DeleteChildren``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Удаляет коллекцию дочерних объектов заданного типа.
+            </summary>
+            <typeparam name="TChild">Тип дочернего объекта.</typeparam>
+            <param name="children">Коллекия дочерних объекто.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.ChangeInfo">
+            <summary>
+            Содержит информацию об изменениях свойств данного экземпляра.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObject`3.ContextManager">
+            <summary>
+            Управляет контекстами операций данного экземпляра.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObject`3.CheckExists">
+            <summary>
+            Проверяет, что объект существует и был сохранён в базу данных.
+            Генерирует исключение в ином случае.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObject`3.CheckIsNew">
+            <summary>
+            Проверяет, что объект является новым и ещё не был сохранён в базу данных.
+            Генерирует исключение в ином случае.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyObjectAdapter`3">
+            <summary>
+            Представляет адаптер объектов системы.
+            </summary>
+            <typeparam name="TObject">Тип объекта системы.</typeparam>
+            <typeparam name="TEntity">Тип сохраняемого объекта.</typeparam>
+            <typeparam name="IObject">Тип интерфейса объекта.</typeparam>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapter`3.Type">
+            <summary>
+            Тип объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapter`3.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapter`3.Constructor">
+            <summary>
+            Конструктор объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapter`3.EntityConstructor">
+            <summary>
+            Конструктор сохраняемого объекта.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.CreateEntity">
+            <summary>
+            Создаёт новый экземпляр сохраняемого объекта.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.CreateObject(`1)">
+            <summary>
+            Создаёт новый экземпляр объекта на основе сохраняемых данных.
+            </summary>
+            <param name="entity">Сохраняемые данные. При отсутствии данных создаётся экземпляр, соответствующий новому объекту.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.CreateObject">
+            <summary>
+            Создаёт новый объект, не сохранённый в базу данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyObjectAdapter`3.ObjectsByID">
+            <summary>
+            Словарь объектов системы по идентификаторам объектов.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.Initialize(`1)">
+            <summary>
+            Инициализирует существующий объект по сохраняемым данным.
+            </summary>
+            <param name="entity">Объект сохраняемых данных.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.GetObject(System.Int32,System.Boolean)">
+            <summary>
+            Возвращает объект системы по идентификатору сохраняемого объекта.
+            </summary>
+            <param name="entityID">Идентификатор сохраняемого объекта.</param>
+            <param name="throwNotFoundException">При установленном параметре true генерирует исключение в случае отсутствия экземпляра.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.AddCreatedObject(`0)">
+            <summary>
+            Добавляет только что созданный объект в словарь существующих экземпляров объектов.
+            </summary>
+            <param name="skyObject">Добавляемый экземпляр.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.RemoveDeletedObject(System.Int32)">
+            <summary>
+            Удаляет удалённый объект из словаря существующих экземпляров.
+            </summary>
+            <param name="entityID">Идентификатор удаляемого объекта.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.GetObjects">
+            <summary>
+            Возвращает все объекты данного типа.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.GetObject(System.Func{System.Data.Entity.DbSet{`1},`1})">
+            <summary>
+            Возвращает объект данного типа по сохранённому объекту, полученному из соответсвующего набора данных.
+            </summary>
+            <param name="entityResolver">Метод, возвращающий сохранённый объект по набору данных.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.GetObjects(System.Func{System.Data.Entity.DbSet{`1},System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Возвращает объекты данного типа для массива сохранённых объектов, полученного из соответсвующего набора данных.
+            </summary>
+            <param name="entitiesResolver">Метод, возвращающий массив сохранённых объектов по набору данных.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.ExecuteQuery``1(System.Func{System.Data.Entity.DbSet{`1},``0})">
+            <summary>
+            Выполняет команду в контексте подключения к набору данных и возвращает результат заданного типа.
+            </summary>
+            <typeparam name="TResult">Тип возвращаемого результата.</typeparam>
+            <param name="entitySetCommand">Команда, выполняющая запрос к набору данных и возвращающая результат.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.ExecuteQuery``1(System.Func{System.Data.Entity.DbSet{`1},Skychain.Models.Entity.SkyEntityContext,``0})">
+            <summary>
+            Выполняет команду в контексте подключения к набору данных и возвращает результат заданного типа.
+            </summary>
+            <typeparam name="TResult">Тип возвращаемого результата.</typeparam>
+            <param name="entitySetCommand">Команда, выполняющая запрос к набору данных и возвращающая результат.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyObjectAdapter`3.ExecuteQuery(System.Action{System.Data.Entity.DbSet{`1},Skychain.Models.Entity.SkyEntityContext})">
+            <summary>
+            Выполняет команду в контексте подключения к набору данных.
+            </summary>
+            <param name="entitySetCommand">Команда, выполняющая запрос к набору данных.</param>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyContext">
+            <summary>
+            Представляет контекст работы с системой.
+            Экземпляр класса не является потокобезопасным, как и все экземпляры, которые могут быть получены через данный экземпляр.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyContext.#ctor">
+            <summary>
+            Создаёт новый экземпляр SkyContext.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyContext.ObjectAdapters">
+            <summary>
+            Содержит адаптеры всех типов объектов системы.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyContext.GetUser(System.Guid)">
+            <summary>
+            Возвращает новый или существующий экземпляр пользователя.
+            Метод выполняет сопоставление между идентификатором и экземпляром, соответствующим данному идентификатору,
+            какого-либо поиска пользователя по идентификатору не производится.
+            </summary>
+            <param name="userID">Идентификатор пользователя, для которого производится сопоставление.</param>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyContext.Storage">
+            <summary>
+            Хранилище файлов системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyContext.ContextManager">
+            <summary>
+            Управляет контекстами операций данного экземпляра.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyContext.RunDeletingContext">
+            <summary>
+            Запускает контекст удаления объектов.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyContext.IsDeletingContext">
+            <summary>
+            Возвращает true, если в данный момент выполняется контекст удаления объектов.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyDataSet">
+            <summary>
+            Представляет набор данных для обучения и тренировки сети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.Name">
+            <summary>
+            Название набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.ProfileID">
+            <summary>
+            Идентификатор профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.Profile">
+            <summary>
+            Профиль, которому принадлежит набор данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.Cost">
+            <summary>
+            Стоимость использования набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.Rating">
+            <summary>
+            Рейтинг данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.Description">
+            <summary>
+            Описание набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.DataDescription">
+            <summary>
+            Описание данных, хранящихся в наборе.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.TrainSet">
+            <summary>
+            Тренировочный набор данных.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.TestSet">
+            <summary>
+            Набор данных для тестирования нейросети.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.SampleSet">
+            <summary>
+            Образец набора данных.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyDataSet.Published">
+            <summary>
+            Возвращает true, если набор данных опубликован.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyDataSet.CheckPublished">
+            <summary>
+            Проверяет, является ли набор данных опубликованным, в ином случае генерирует исключение.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyDataSet.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyDataSet.Delete">
+            <summary>
+            Удаляет объект и все связанные с ним дочерние объекты.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyDataSet.ToString">
+            <summary>
+            Текстовое представление экземпляра класса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Implementation.SkyWebContext">
+            <summary>
+            Представляет контекст работы системы Skychain в рамках http-запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyWebContext.HttpContext">
+            <summary>
+            Контекст выполнения http-запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyWebContext.SkyContext">
+            <summary>
+            Возвращает текущий контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyWebContext.CurrentUser">
+            <summary>
+            Текущий пользователь, для которого выполняется http-запрос.
+            Генерирует исключение при отсутствии текущего пользователя.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Implementation.SkyWebContext.HasCurrentUser">
+            <summary>
+            Возвращает true, при наличии текущего пользователя, для которого выполняется http-запрос.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyWebContext.EncodeHtml(System.String)">
+            <summary>
+            Кодирует текст для представления всех его символов в отображаемом виде в html.
+            </summary>
+            <param name="text">Кодируемый текст.</param>
+        </member>
+        <member name="M:Skychain.Models.Implementation.SkyWebContext.EncodeXml(System.String)">
+            <summary>
+            Кодирует текст формата Xml для представления всех его символов в отображаемом виде в html.
+            </summary>
+            <param name="xmlData">Кодируемый текст в формате Xml.</param>
+        </member>
+        <member name="T:Skychain.Models.ISkyContext">
+            <summary>
+            Представляет контекст работы с системой.
+            Экземпляр класса не является потокобезопасным, как и все экземпляры, которые могут быть получены через данный экземпляр.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyContext.ObjectAdapters">
+            <summary>
+            Содержит адаптеры всех типов объектов системы.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyContext.GetUser(System.Guid)">
+            <summary>
+            Возвращает новый или существующий экземпляр пользователя.
+            Метод выполняет сопоставление между идентификатором и экземпляром, соответствующим данному идентификатору,
+            какого-либо поиска пользователя по идентификатору не производится.
+            </summary>
+            <param name="userID">Идентификатор пользователя, для которого производится сопоставление.</param>
+        </member>
+        <member name="T:Skychain.Models.ISkyDataSet">
+            <summary>
+            Представляет набор данных для обучения и тренировки сети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.Name">
+            <summary>
+            Название набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.Profile">
+            <summary>
+            Профиль, которому принадлежит набор данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.Cost">
+            <summary>
+            Стоимость использования набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.Rating">
+            <summary>
+            Рейтинг данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.Description">
+            <summary>
+            Описание набора данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.DataDescription">
+            <summary>
+            Описание данных, хранящихся в наборе.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.TrainSet">
+            <summary>
+            Тренировочный набор данных.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.TestSet">
+            <summary>
+            Набор данных для тестирования нейросети.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.SampleSet">
+            <summary>
+            Образец набор данных. 
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyDataSet.Published">
+            <summary>
+            Возвращает true, если набор данных опубликован.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyDataSet.CheckPublished">
+            <summary>
+            Проверяет, является ли набор данных опубликованным, в ином случае генерирует исключение.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyFile">
+            <summary>
+            Представляет файле в хранилище.
+            Содержит методы чтения, создания, обновления, удаления файла и проверки наличия файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.ID">
+            <summary>
+            Уникальный идентификатор файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.IsNew">
+            <summary>
+            Возвращает true, если файл является новым и не имеет идентификатора.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.ReadOnly">
+            <summary>
+            Файл только для чтения.
+            При установленном значении true загрузка новой версии файла запрещена.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.Name">
+            <summary>
+            Имя файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.Size">
+            <summary>
+            Размер файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.TimeCreated">
+            <summary>
+            Дата создания файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.TimeModified">
+            <summary>
+            Дата последнего изменения файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.Exists">
+            <summary>
+            Возвращает true, если файл существует в хранилище.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyFile.CheckExists">
+            <summary>
+            Генерирует исключение в случае отсутствия файла.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyFile.Upload(System.String,System.IO.Stream)">
+            <summary>
+            Загружает новый файл в хранилище, если файл не существует.
+            Загружает версию файла в хранилище, если файл существует.
+            Генерирует исключение в случае, если файл существует и является файлом только для чтения.
+            </summary>
+            <param name="fileName">Название загружаемого файла.</param>
+            <param name="fileStream">Поток данных загружаемого файла.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyFile.Open">
+            <summary>
+            Открывает поток чтения данных файла.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyFile.Content">
+            <summary>
+            Контент файла.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyFile.Delete">
+            <summary>
+            Удаляет файл из хранилища.
+            Генерирует исключение в случае, если файл является файлом только для чтения.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyFile.GetSessionLink">
+            <summary>
+            Возвращает сессионную ссылку на файл.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Skychain.Models.ISkyNetwork">
+            <summary>
+            Представляет нейросеть.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.Profile">
+            <summary>
+            Профиль, которому принадлежит нейросеть.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.Name">
+            <summary>
+            Название нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.Description">
+            <summary>
+            Описание нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.Cost">
+            <summary>
+            Стоимость использования нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.Published">
+            <summary>
+            Возвращает true, если нейросеть опубликована.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.StateData">
+            <summary>
+            Данные текущего состояния нейросети.
+            Изменяются после выполнения тренировки сети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetwork.CheckPublished">
+            <summary>
+            Проверяет, является ли нейросеть опубликованной, в ином случае генерирует исключение.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.Rating">
+            <summary>
+            Рейтинг нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.UsagesCount">
+            <summary>
+            Количество использований сети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.ActiveVersion">
+            <summary>
+            Активная версия нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetwork.CheckActiveVersion">
+            <summary>
+            Проверяет наличие активной версии нейросети.
+            Генерирует исключение в случае отсутствия активной версии.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.Versions">
+            <summary>
+            Версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetwork.CreateVersion">
+            <summary>
+            Создаёт новый экземпляр версии нейросети, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetwork.GetVersion(System.Int32)">
+            <summary>
+            Возвращает версию нейросети по идентификатору версии в рамках нейросети.
+            </summary>
+            <param name="versionInternalID">Идентификатор версии в рамках нейсросети.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetwork.GetVersion(System.Int32,System.Boolean)">
+            <summary>
+            Возвращает версию нейросети по идентификатору версии в рамках нейросети.
+            </summary>
+            <param name="versionInternalID">Идентификатор версии в рамках нейсросети.</param>
+            <param name="throwNotFoundException">Генерирует исключение в случае отсутствия версии с заданным идентификатором в рамках нейросети.</param>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetwork.TrainSchemes">
+            <summary>
+            Схемы тренировок нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetwork.CreateTrainScheme">
+            <summary>
+            Создаёт новый экземпляр схемы тренировки нейросети, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetwork.CreateRequest(Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый экземляр запроса к активному состоянию активной версии данной нейросети.
+            </summary>
+            <param name="user">Пользователь, формирующий запрос.</param>
+        </member>
+        <member name="T:Skychain.Models.ISkyTrainRequest">
+            <summary>
+            Представляет запрос тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.Network">
+            <summary>
+            Нейросеть, для которой выполняется тренировка.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.NetworkVersion">
+            <summary>
+            Тренируемая версия нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.TrainScheme">
+            <summary>
+            Схема тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.InitialState">
+            <summary>
+            Состояние нейросети, на основе которого выполняется тренировка.
+            Возвращает null в случае, если тренировка является первичной.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.User">
+            <summary>
+            Пользователь, выполняющий тренировку нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.Status">
+            <summary>
+            Статус запроса тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.ResultState">
+            <summary>
+            Состояние нейросети, сформированное в результате тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.StartTime">
+            <summary>
+            Время начала запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.EndTime">
+            <summary>
+            Время начала окончания.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.ResultStateDescription">
+            <summary>
+            Описание результирующего состояния.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.TrainLog">
+            <summary>
+            Лог, записываемый во время выполнения тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.ErrorMessage">
+            <summary>
+            Сообщение об ошибке, возникшей при выполнении запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainRequest.Succeed">
+            <summary>
+            Возвращает true, если обработка запроса была выполнена без ошибок.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainRequest.Create">
+            <summary>
+            Создаёт запрос тренировки.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainRequest.Process">
+            <summary>
+            Устаналивает статус выполнения тренировки в данный момент времени.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainRequest.Train">
+            <summary>
+            Выполняет тренировку.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainRequest.WriteTrainLog(System.String)">
+            <summary>
+            Записывает сообщение в лог тренировки нейросети.
+            </summary>
+            <param name="message">Текст записываемого в лог сообщения.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainRequest.Complete">
+            <summary>
+            Устанавливает статус завершения тренировки.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.SkyTrainRequestStatus">
+            <summary>
+            Представляет статус запроса тренировки нейросети.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyTrainRequestStatus.Creating">
+            <summary>
+            Создание запроса.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyTrainRequestStatus.Processing">
+            <summary>
+            Выполнение запроса.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyTrainRequestStatus.Completed">
+            <summary>
+            Запрос выполнен.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyNetworkState">
+            <summary>
+            Представляет состояние нейросети, сформированное в результате тренировки.
+            Используется для выполнения запросов к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.Network">
+            <summary>
+            Нейросеть, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.NetworkVersion">
+            <summary>
+            Версия нейросети, которой соответствует состояние.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.InternalID">
+            <summary>
+            Идентификатор состояния в рамках версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkState.CheckInternalID">
+            <summary>
+            Проверяет наличие идентификатора состояния в рамках версии нейросети.
+            Генерирует исключение в случае отсутствия.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.TrainScheme">
+            <summary>
+            Схема тренировки, по которой было сформировано состояние нейросети.
+            Возвращает null в случае удаления схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.InitialState">
+            <summary>
+            Состояние нейросети, на основе которого было инициализировано данное состояние.
+            Возвращает null в случае, если данное состояние является первичным.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.Description">
+            <summary>
+            Описание состояния нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.DisplayName">
+            <summary>
+            Отображаемое название состояния нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.DerivedStates">
+            <summary>
+            Коллекция состояний сети, инициализированных на основе данного состояния.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.StateData">
+            <summary>
+            Данные состояния нейросети, через которое будут выполняться запросы к нейросети.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkState.CheckStateData">
+            <summary>
+            Проверяет наличие данных состояния нейросети.
+            Генерирует исключение в случае отсутствия.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkState.StateParameters">
+            <summary>
+            Параметры состояния нейросети.
+            Может содержать ошибку прохождения тренировочной схему и другие параметры.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkState.CreateRequest(Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый экземляр запроса к данному состоянию нейросети.
+            </summary>
+            <param name="user">Пользователь, формирующий запрос.</param>
+        </member>
+        <member name="T:Skychain.Models.ISkyTrainEpoch">
+            <summary>
+            Представляет эпоху прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpoch.EpochNumber">
+            <summary>
+            Номер эпохи.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpoch.Params">
+            <summary>
+            Параметры прохождения эпохи.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpoch.TrainScheme">
+            <summary>
+            Схема тренировки нейросети, к которой относится эпоха.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyTrainEpochParams">
+            <summary>
+            Представляет параметры прохождения тренировочного сета для набора эпох.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpochParams.TrainScheme">
+            <summary>
+            Схема тренировок, к которой относятся параметры прохождения.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpochParams.StartEpochNumber">
+            <summary>
+            Начальная эпоха, которой соответствуют параметры прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpochParams.EndEpochNumber">
+            <summary>
+            Конечная эпоха, которой соответствуют параметры прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpochParams.DataSet">
+            <summary>
+            Набор данных для тренировки.
+            Генерирует исключение в случае отсутствия набора данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainEpochParams.ChangeDataSet(System.Int32)">
+            <summary>
+            Устанавливает набор данных для тренировки сети.
+            </summary>
+            <param name="dataSetID">Идентификатор набора данных.</param>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpochParams.HasDataSet">
+            <summary>
+            Возвращает true, если в параметрах тренировки указан набор данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainEpochParams.CustomParameters">
+            <summary>
+            Произвольные параметры тренировки.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyNetworkRequest">
+            <summary>
+            Представляет запрос пользователя к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.Network">
+            <summary>
+            Нейросеть, к которой выполняется запрос.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.NetworkVersion">
+            <summary>
+            Используемая версия нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.NetworkState">
+            <summary>
+            Состояние нейросети, на основе которого формируется результат.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.User">
+            <summary>
+            Пользователь, формирующий запрос к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.Status">
+            <summary>
+            Статус запроса к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.NetworkCost">
+            <summary>
+            Стоимость использования нейросети на момент создания запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.InputData">
+            <summary>
+            Данные, введённые пользователем, в соответствии с форматом манифеста.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.CheckInputData">
+            <summary>
+            Проверяет наличие данных, введённых пользователем, при формировании запроса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.CreateInputFile">
+            <summary>
+            Создаёт экземпляр для загрузки файла, выбранного пользователем на форме входных данных запроса к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.GetInputFile(System.Guid)">
+            <summary>
+            Возвращает экземпляр файла, выбранного пользователем на форме входных данных запроса к нейросети.
+            Метод всегда возвращает значение, отличающееся от null.
+            </summary>
+            <param name="fileID">Идентификатор файла.</param>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.ResultData">
+            <summary>
+            Данные результата запроса, в соответствии с форматом манифеста.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.CheckResultData">
+            <summary>
+            Проверяет наличие данных результата запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.StartTime">
+            <summary>
+            Время начала запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.EndTime">
+            <summary>
+            Время начала окончания.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.ErrorMessage">
+            <summary>
+            Сообщение об ошибке, возникшей при выполнении запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkRequest.Succeed">
+            <summary>
+            Возвращает true, если обработка запроса была выполнена без ошибок.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.Create">
+            <summary>
+            Создаёт запрос к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.Process">
+            <summary>
+            Устаналивает статус обработки запроса нейросетью в данный момент времени.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.ComputeResult">
+            <summary>
+            Вычисляет результат обработки запроса к нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkRequest.Complete">
+            <summary>
+            Устанавливает статус завершения запроса к нейросети.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.SkyNetworkRequestStatus">
+            <summary>
+            Представляет статус запроса к нейросети.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyNetworkRequestStatus.Creating">
+            <summary>
+            Создание запроса.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyNetworkRequestStatus.Processing">
+            <summary>
+            Выполнение запроса.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyNetworkRequestStatus.Completed">
+            <summary>
+            Запрос выполнен.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyTrainScheme">
+            <summary>
+            Представляет схему тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainScheme.Network">
+            <summary>
+            Нейросеть, для которой соответствует данная схема тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainScheme.Name">
+            <summary>
+            Название схемы тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainScheme.Epochs">
+            <summary>
+            Эпохи прохождения тренировочного сета.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyTrainScheme.EpochParamsSet">
+            <summary>
+            Коллекция параметров прохождения тренировочного сета для наборов эпох.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainScheme.CreateEpochParams">
+            <summary>
+            Создаёт экземпляр параметров прохождения тренировочного сета для набора эпох, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyTrainScheme.UpdateEpochs">
+            <summary>
+            Проверяет корректность и обновляет номера эпох, а также обновляет остальные свойства для всех параметров эпох.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyNetworkVersion">
+            <summary>
+            Представляет версию нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.Network">
+            <summary>
+            Нейросеть.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.InternalID">
+            <summary>
+            Идентификатор версии в рамках нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkVersion.CheckInternalID">
+            <summary>
+            Проверяет наличие идентификатора версии в рамках нейросети.
+            Генерирует исключение в случае отсутствия.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.Name">
+            <summary>
+            Название нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.Description">
+            <summary>
+            Описание нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.IsActive">
+            <summary>
+            Возвращает true, если версия нейросети является активной.
+            При сохранении установленного значения true в базу данных (при вызове Update), 
+            данный флаг устанавливается в false у текущей активной версии нейросети, отличающейся от данной.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkVersion.CheckIsActive">
+            <summary>
+            Проверяет, является ли версия нейросети активной, в ином случае генерирует исключение.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.ManifestData">
+            <summary>
+            Манифест введённых пользователем данных и данных результата.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.TensorLibrary">
+            <summary>
+            Библиотека тензора нейросети.
+            Свойство всегда возвращает существующий экземпляр класса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkVersion.CreateNetworkState(System.Int32,System.Int32)">
+            <summary>
+            Создаёт новый экземпляр состояния нейросети для заданной схемы тренировок.
+            Состояние нейросети может быть создано на основе другого состояния.
+            </summary>
+            <param name="trainSchemeID">Идентификатор схемы тренировок, для которого создаётся состояние нейросети.</param>
+            <param name="initialStateID">Идентификатор состояния нейросети, на основе которого создаётся состояние. 
+            Если состояние является первичным, необходимо передать значение 0.</param>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.NetworkStates">
+            <summary>
+            Состояния нейросети, соответствующие данной версии.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyNetworkVersion.ActiveNetworkState">
+            <summary>
+            Активное состояние нейросети, используемое для выполнения запросов к данной версии нейросети.
+            Возвращает null, если для активное состояние не задано для данной версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkVersion.CheckActiveNetworkState">
+            <summary>
+            Проверяет наличие активного состояния версии нейросети.
+            Генерирует исключение в случае отсутствия активного состояния версии нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkVersion.ChangeActiveNetworkState(System.Int32)">
+            <summary>
+            Устанавливает активное состояние нейросети, используемое для выполнения запросов к данной версии нейросети.
+            </summary>
+            <param name="networkStateID">Идентификатор состояния нейросети, устанавливаемого в качестве активного для версии нейросети.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkVersion.CreateRequest(Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый экземляр запроса к активному состоянию данной версии нейросети.
+            </summary>
+            <param name="user">Пользователь, формирующий запрос.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyNetworkVersion.CreateTrainRequest(System.Int32,System.Int32,Skychain.Models.ISkyUser)">
+            <summary>
+            Создаёт новый запрос тренировки нейросети для заданной схемы тренировок.
+            Тренировка нейросети может быть инициализирована на основе другого состояния нейросети.
+            </summary>
+            <param name="trainSchemeID">Идентификатор схемы тренировок.</param>
+            <param name="initialStateID">Идентификатор состояния нейросети, на основе которого будет выполнена тренировка. 
+            Если тренировка является первичной, необходимо передать значение 0.</param>
+            <param name="user">Пользователь, выполняющий тренировку нейросети.</param>
+        </member>
+        <member name="T:Skychain.Models.ISkyObject">
+            <summary>
+            Представляет интерфейс объекта системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObject.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObject.ID">
+            <summary>
+            Уникальный идентификатор объекта в базе данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObject.IsNew">
+            <summary>
+            Возвращает true, если объект является новым и не был сохранён в базу данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObject.JustCreated">
+            <summary>
+            Возвращает true, если экземпляр объекта был создан в текущем контексте выполнения кода.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObject.VersionNumber">
+            <summary>
+            Номер версии объекта, увеличиваемый при каждом обновлении объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObject.TimeCreated">
+            <summary>
+            Дата и время сохранения нового объекта.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObject.TimeModified">
+            <summary>
+            Дата и время последнего изменения объекта.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyObject.Update">
+            <summary>
+            Обновляет объект в базе данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyObject.Delete">
+            <summary>
+            Удаляет объект из базы данных.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyObject.CheckExists">
+            <summary>
+            Проверяет, что объект существует и был сохранён в базу данных.
+            Генерирует исключение в ином случае.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyObject.CheckIsNew">
+            <summary>
+            Проверяет, что объект является новым и ещё не был сохранён в базу данных.
+            Генерирует исключение в ином случае.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyObjectAdapter`2">
+            <summary>
+            Представляет адаптер объектов системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapter`2.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.GetObject(System.Int32)">
+            <summary>
+            Возвращает объект системы по идентификатору сохраняемого объекта.
+            </summary>
+            <param name="entityID">Идентификатор сохраняемого объекта.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.GetObject(System.Int32,System.Boolean)">
+            <summary>
+            Возвращает объект системы по идентификатору сохраняемого объекта.
+            </summary>
+            <param name="entityID">Идентификатор сохраняемого объекта.</param>
+            <param name="throwNotFoundException">При установленном параметре true генерирует исключение в случае отсутствия экземпляра.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.GetObject(System.Func{System.Data.Entity.DbSet{`1},`1})">
+            <summary>
+            Возвращает объект данного типа по сохранённому объекту, полученному из соответсвующего набора данных.
+            </summary>
+            <param name="entityResolver">Метод, возвращающий сохранённый объект по набору данных.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.GetObjects">
+            <summary>
+            Возвращает все объекты данного типа.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.GetObjects(System.Func{System.Data.Entity.DbSet{`1},System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Возвращает объекты данного типа для массива сохранённых объектов, полученного из соответствующего набора данных.
+            </summary>
+            <param name="entitiesResolver">Метод, возвращающий массив сохранённых объектов по набору данных.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.ExecuteQuery``1(System.Func{System.Data.Entity.DbSet{`1},``0})">
+            <summary>
+            Выполняет команду в контексте подключения к набору данных и возвращает результат заданного типа.
+            </summary>
+            <typeparam name="TResult">Тип возвращаемого результата.</typeparam>
+            <param name="entitySetCommand">Команда, выполняющая запрос к набору данных и возвращающая результат.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.ExecuteQuery``1(System.Func{System.Data.Entity.DbSet{`1},Skychain.Models.Entity.SkyEntityContext,``0})">
+            <summary>
+            Выполняет команду в контексте подключения к набору данных и возвращает результат заданного типа.
+            </summary>
+            <typeparam name="TResult">Тип возвращаемого результата.</typeparam>
+            <param name="entitySetCommand">Команда, выполняющая запрос к набору данных и возвращающая результат.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyObjectAdapter`2.ExecuteQuery(System.Action{System.Data.Entity.DbSet{`1},Skychain.Models.Entity.SkyEntityContext})">
+            <summary>
+            Выполняет команду в контексте подключения к набору данных.
+            </summary>
+            <param name="entitySetCommand">Команда, выполняющая запрос к набору данных.</param>
+        </member>
+        <member name="T:Skychain.Models.ISkyObjectAdapterRepository">
+            <summary>
+            Содержит адаптеры всех типов объектов системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.Profiles">
+            <summary>
+            Адаптер профилей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.DataSets">
+            <summary>
+            Адаптер наборов данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.Networks">
+            <summary>
+            Адаптер нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.NetworkVersions">
+            <summary>
+            Адаптер версий нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.TrainSchemes">
+            <summary>
+            Адаптер схем тренировок нейросетей.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.TrainEpochParams">
+            <summary>
+            Адаптер параметров прохождения тренировочного сета для набора эпох.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.TrainRequests">
+            <summary>
+            Адаптер запросов тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.NetworkStates">
+            <summary>
+            Адаптер состояний нейросети, сформированных в результате тренировки.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyObjectAdapterRepository.NetworkRequests">
+            <summary>
+            Адаптер запросов пользователей к нейросетям.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyProfile">
+            <summary>
+            Представляет профиль пользователя.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.User">
+            <summary>
+            Пользователь, к которому относится профиль.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Email">
+            <summary>
+            Адрес электронной почты профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.ShowEmailForEveryone">
+            <summary>
+            Определяет, отображать ли адрес электронной почты для всех пользователей системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Name">
+            <summary>
+            Имя профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Bio">
+            <summary>
+            Общая информация о профиле.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Country">
+            <summary>
+            Страна.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.City">
+            <summary>
+            Город.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Address">
+            <summary>
+            Адрес.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Picture">
+            <summary>
+            Изображение, соответствующее профилю.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Type">
+            <summary>
+            Тип профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.DataSets">
+            <summary>
+            Наборы данных, принадлежащие профилю.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyProfile.CreateDataSet">
+            <summary>
+            Создаёт новый экземпляр набора данных для использования в нейросети, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyProfile.Networks">
+            <summary>
+            Нейросети, принадлежащие профилю.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyProfile.CreateNetwork">
+            <summary>
+            Создаёт новый экземпляр нейросети, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.SkyProfileType">
+            <summary>
+            Тип профиля пользователя.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyProfileType.Individual">
+            <summary>
+            Физическое лицо.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.SkyProfileType.LegalEntity">
+            <summary>
+            Юридическое лицо.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyUser">
+            <summary>
+            Представляет пользователя системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyUser.ID">
+            <summary>
+            Идентификатор пользователя.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyUser.Context">
+            <summary>
+            Контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyUser.Profile">
+            <summary>
+            Профиль пользователя.
+            Генерирует исключение в случае отсутствия профиля.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyUser.HasProfile">
+            <summary>
+            Возвращает true, если для пользователя создан профиль.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyUser.CheckProfile">
+            <summary>
+            Проверяет наличие профиля.
+            Генерирует исключение в случае отсутствия профиля.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyUser.CreateProfile">
+            <summary>
+            Создаёт новый экземпляр профиля, соответствующего пользователю системы, без сохранения в базу данных.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyUser.RecentRequests">
+            <summary>
+            Последние запросы пользователя к нейросетям.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.ISkyWebContext">
+            <summary>
+            Представляет контекст работы системы Skychain в рамках http-запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyWebContext.HttpContext">
+            <summary>
+            Контекст выполнения http-запроса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyWebContext.SkyContext">
+            <summary>
+            Возвращает текущий контекст системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyWebContext.CurrentUser">
+            <summary>
+            Текущий пользователь, для которого выполняется http-запрос.
+            Генерирует исключение при отсутствии текущего пользователя.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.ISkyWebContext.HasCurrentUser">
+            <summary>
+            Возвращает true, при наличии текущего пользователя, для которого выполняется http-запрос.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.ISkyWebContext.EncodeHtml(System.String)">
+            <summary>
+            Кодирует текст для представления всех его символов в отображаемом виде в html.
+            </summary>
+            <param name="text">Кодируемый текст.</param>
+        </member>
+        <member name="M:Skychain.Models.ISkyWebContext.EncodeXml(System.String)">
+            <summary>
+            Кодирует текст формата Xml для представления всех его символов в отображаемом виде в html.
+            </summary>
+            <param name="xmlData">Кодируемый текст в формате Xml.</param>
+        </member>
+        <member name="T:Skychain.Models.PublicAPI.DataSet">
+            <summary>
+            Датасет.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.DataSet.#ctor(Skychain.Models.ISkyDataSet)">
+            <summary>
+            Датасет.
+            </summary>
+            <param name="dataset"></param>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.DataSet.Dataset">
+            <summary>
+            Датасет.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.DataSet.Open">
+            <summary>
+            Открывает поток для чтения датасета.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Skychain.Models.PublicAPI.InferenceOperationContext">
+            <summary>
+            Контекст запроса к сети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.InferenceOperationContext.InitialState">
+            <summary>
+            Начальное состояние.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.InferenceOperationContext.SaveModel(System.Byte[])">
+            <summary>
+            Сохранение модели.
+            </summary>
+            <param name="checkpoint"></param>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.InferenceOperationContext.WriteLog(System.String)">
+            <summary>
+            Запись лога.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.InferenceOperationContext.CreateInputData(System.String)">
+            <summary>
+            Преобразует данные из JSON`а в объект для Public API.
+            </summary>
+            <param name="jsonValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.InferenceOperationContext.OpenFile(System.Guid)">
+            <summary>
+            Opens file stream.
+            </summary>
+            <param name="guid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Skychain.Models.PublicAPI.TrainEpoch">
+            <summary>
+            Тренировочная эпоха.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.TrainEpoch.#ctor(Skychain.Models.ISkyTrainEpoch)">
+            <summary>
+            Тренировочная эпоха.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainEpoch.Epoch">
+            <summary>
+            Эпоха.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.PublicAPI.TrainEpoch._dataset">
+            <summary>
+            Датасет.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainEpoch.CustomParams">
+            <summary>
+            Кастомные параметры.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainEpoch.Dataset">
+            <summary>
+            Датасет.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainEpoch.Number">
+            <summary>
+            Порядковый номер эпохи.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.PublicAPI.TrainOperationContext">
+            <summary>
+            Контекст обучения сети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.TrainOperationContext.#ctor(Skychain.Models.ISkyTrainRequest)">
+            <summary>
+            Контекст обучения сети.
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainOperationContext.Request">
+            <summary>
+            Запрос.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainOperationContext.InitialState">
+            <summary>
+            Начальное состояние.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.PublicAPI.TrainOperationContext.SavedState">
+            <summary>
+            Сохранённое состояние.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.TrainOperationContext.SaveModel(System.Byte[])">
+            <summary>
+            Сохраняет состояние.
+            </summary>
+            <param name="checkpoint"></param>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.TrainOperationContext.WriteLog(System.String)">
+            <summary>
+            Записывает лог.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.TrainOperationContext.OpenFile(System.Guid)">
+            <summary>
+            Открывает файл для чтения.
+            </summary>
+            <param name="guid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Skychain.Models.PublicAPI.TrainScheme">
+            <summary>
+            Тренировочная схема.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.PublicAPI.TrainScheme.#ctor(Skychain.Models.ISkyTrainScheme)">
+            <summary>
+            Тренировочная схема.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainScheme.Epochs">
+            <summary>
+            Эпохи.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.PublicAPI.TrainScheme.Scheme">
+            <summary>
+            Схема.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Runtime.RuntimeContext">
+            <summary>
+            Представляет контекст времени выполнения кода.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Runtime.RuntimeContext.#ctor(System.Web.HttpContext)">
+            <summary>
+            Создает экземпляр RuntimeContext.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.Runtime.RuntimeContext._CurrentThreadContext">
+            <summary>
+            Ссылка на контекст времени выполнения в рамках текущего потока.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.Runtime.RuntimeContext._CurrentScopeContext">
+            <summary>
+            Ссылка на контекст времени выполнения в рамках области выполнения кода текущего потока.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.Runtime.RuntimeContext.__reseted_CurrentThreadContext">
+            <summary>
+            Устанавливается в true, если контекст выполнения был сброшен хотя бы один раз.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Runtime.RuntimeContext.CheckCurrentThreadContextReseted">
+            <summary>
+            Проверяет, что контекст выполнения был сброшен хотя бы один раз.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.Runtime.RuntimeContext._HttpContextCurrentKey">
+            <summary>
+            Ключ по которому хранится контекст выполняния в хэш-таблице HttpContext.Items.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.RuntimeContext.Current">
+            <summary>
+            Текущий контекст времени выполняния кода. В случае наличия текущего HttpContext, экземпляр RuntimeContext иницилизируется в рамках HttpContext.
+            В ином случае экземляр RuntimeContext инициализируется и живет в рамках текущего потока.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Runtime.RuntimeContext.ResetCurrent">
+            <summary>
+            Сбрасывает контекст времени выполнения для текущего потока.
+            Операция доступна только вне запроса к веб-приложению.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.RuntimeContext.HttpContext">
+            <summary>
+            Текущий контекст выполнения запроса к веб-приложению.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Runtime.RuntimeContext.CheckHttpContext">
+            <summary>
+            Проверяет, что операция выполняется в контексте http-запроса к веб-приложению.
+            В ином случае генерирует исключение.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.RuntimeContext.BoundPointsUnmanaged">
+            <summary>
+            Возвращает true, если границы выполнения контекста - точка входа и точка выхода из контекста не являются управлемым и четко не определены.
+            Характеризует состояние контекста выполнения службы Windows, параллельного потока в http-контексте, а также обработчика файлов SharePoint.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.RuntimeContext.Properties">
+            <summary>
+            Свойства, инициализируемые внешним кодом в рамках текущего контекста времени выполнения.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.RuntimeContext.ContextManager">
+            <summary>
+            Менеджер операций контекста выполнения кода.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Runtime.RuntimeContextScope">
+            <summary>
+            Содержит методы для установки нового экземпляра текущего контекста выполнения с момента создания экземпляра и до вызова метода Dispose.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.Runtime.RuntimeContextScope._IsRuntimeScope">
+            <summary>
+            Возвращает true, если в качестве текущего контекста используется контекст области кода.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.RuntimeContextScope.IsRuntimeScope">
+            <summary>
+            Возвращает true, если в качестве текущего контекста используется контекст области кода.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Runtime.RuntimeContextScope.#ctor">
+            <summary>
+            Инициализирует область кода с новым экземпляром текущего контекста выполнения.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Runtime.RuntimeContextScope.Dispose">
+            <summary>
+            Отключает действие текущего контекста RuntimeContext.Current, установленного при помощи данного экземпляра.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Runtime.SkyContext">
+            <summary>
+            Содержит методы для работы с текущим контекстом системы.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.SkyContext.Current">
+            <summary>
+            Возвращает текущий контекст выполнения http-запроса в рамках веб-приложения Skychain.
+            Генерирует исключение в случае отсутствия контекста.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Runtime.SkyWebContext">
+            <summary>
+            Содержит методы для работы с текущим http-контекстом.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Runtime.SkyWebContext.Current">
+            <summary>
+            Возвращает текущий контекст выполнения http-запроса в рамках веб-приложения Skychain.
+            Генерирует исключение в случае отсутствия контекста.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Runtime.SkyWebContext.EncodeHtml(System.String)">
+            <summary>
+            Кодирует текст для представления всех его символов в отображаемом виде в html.
+            </summary>
+            <param name="text">Кодируемый текст.</param>
+        </member>
+        <member name="M:Skychain.Models.Runtime.SkyWebContext.EncodeWhiteSpaces(System.String)">
+            <summary>
+            Кодирует переносы строки, знаки табуляции, повторяющиеся пробелы для представления в отображаемом виде в html.
+            </summary>
+            <param name="text">Кодируемый текст.</param>
+        </member>
+        <member name="M:Skychain.Models.Runtime.SkyWebContext.EncodeXml(System.String)">
+            <summary>
+            Кодирует текст формата Xml для представления всех его символов в отображаемом виде в html.
+            </summary>
+            <param name="xmlData">Кодируемый текст в формате Xml.</param>
+        </member>
+        <member name="M:Skychain.Models.Runtime.SkyWebContext.RemoveTagWhitespaces(System.String)">
+            <summary>
+            Удаляет пробелы между тэгами.
+            </summary>
+            <param name="text">Строка в формате Xml или Html.</param>
+        </member>
+        <member name="M:Skychain.Models.Runtime.SkyWebContext.IndentXml(System.String)">
+            <summary>
+            Приводит текст в формате Xml к виду, включающему отступы вложенных тэгов.
+            </summary>
+            <param name="xmlText">Строка в формате Xml.</param>
+        </member>
+        <member name="T:Skychain.Models.Services.ISkyService">
+            <summary>
+            Представляет интерфейс запуска сервиса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.ISkyService.Run">
+            <summary>
+            Запускает выполнение сервиса.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Services.SkyTrainRequestServiceTimer">
+            <summary>
+            Представляет таймер запуска обработки запросов тренировки нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyTrainRequestServiceTimer.#ctor">
+            <summary>
+            Создаёт новый экземпляр таймера запуска обработки запросов тренировки нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyTrainRequestServiceTimer.CreateService">
+            <summary>
+            Создаёт новый экземпляр сервиса для его выполнения.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyTrainRequestServiceTimer.InitLogName">
+            <summary>
+            Возвращает название лога.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyTrainRequestServiceTimer.WriteErrorLog(System.Exception)">
+            <summary>
+            Записывает ошибку в лог ошибок в файл на диске, расположенный в исполняемой папке сервиса.
+            В случае если файл недоступен, записывает ошибку в журнал событий операционной системы.
+            </summary>
+            <param name="error">Ошибка, возникшая во время выполнения.</param>
+        </member>
+        <member name="T:Skychain.Models.Services.SkyTrainRequestService">
+            <summary>
+            Представляет сервис обработки запросов тренировки нейросети.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyTrainRequestService.Run">
+            <summary>
+            Выполняет обработку новых запросов к нейросетям.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyTrainRequestService.ProcessRequest(System.Object)">
+            <summary>
+            Запускает обработку запроса.
+            </summary>
+            <param name="requestHandler">Обрабатываемый запрос.</param>
+        </member>
+        <member name="T:Skychain.Models.Services.SkyTrainRequestHandler">
+            <summary>
+            Представляет обработчик запроса тренировки нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Services.SkyTrainRequestHandler.RequestID">
+            <summary>
+            Идентификатор запроса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyTrainRequestHandler.Process">
+            <summary>
+            Выполняет обработку запроса тренировки нейросети.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Services.SkyNetworkRequestHandler">
+            <summary>
+            Представляет обработчик запроса к нейросети.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Services.SkyNetworkRequestHandler.RequestID">
+            <summary>
+            Идентификатор запроса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyNetworkRequestHandler.Process">
+            <summary>
+            Выполняет обработку запроса к нейросети.
+            </summary>
+        </member>
+        <member name="T:Skychain.Models.Services.SkyNetworkRequestService">
+            <summary>
+            Представляет сервис обработки запросов к нейросетям.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyNetworkRequestService.Run">
+            <summary>
+            Выполняет обработку новых запросов к нейросетям.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyNetworkRequestService.ProcessRequest(System.Object)">
+            <summary>
+            Запускает обработку запроса.
+            </summary>
+            <param name="requestHandler">Обрабатываемый запрос.</param>
+        </member>
+        <member name="T:Skychain.Models.Services.SkyNetworkRequestServiceTimer">
+            <summary>
+            Представляет таймер запуска обработки запросов к нейросетям.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyNetworkRequestServiceTimer.#ctor">
+            <summary>
+            Создаёт новый экземпляр таймера запуска обработки запросов к нейросетям.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyNetworkRequestServiceTimer.CreateService">
+            <summary>
+            Создаёт новый экземпляр сервиса для его выполнения.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyNetworkRequestServiceTimer.InitLogName">
+            <summary>
+            Возвращает название лога.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyNetworkRequestServiceTimer.WriteErrorLog(System.Exception)">
+            <summary>
+            Записывает ошибку в лог ошибок в файл на диске, расположенный в исполняемой папке сервиса.
+            В случае если файл недоступен, записывает ошибку в журнал событий операционной системы.
+            </summary>
+            <param name="error">Ошибка, возникшая во время выполнения.</param>
+        </member>
+        <member name="T:Skychain.Models.Services.SkyServiceTimer">
+            <summary>
+            Представляет таймера запуска выполнения сервиса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyServiceTimer.#ctor">
+            <summary>
+            Создаёт новый экземпляр таймера запуска выполнения сервиса.
+            </summary>
+        </member>
+        <member name="F:Skychain.Models.Services.SkyServiceTimer.ServiceStartTime">
+            <summary>
+            Время запуска сервиса.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Services.SkyServiceTimer.LogName">
+            <summary>
+            Название лога сервиса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyServiceTimer.InitLogName">
+            <summary>
+            Инициализирует название лога сервиса.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyServiceTimer.CreateService">
+            <summary>
+            Создаёт сервис для запуска его выполнения.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyServiceTimer.Run">
+            <summary>
+            Запускает таймер.
+            </summary>
+        </member>
+        <member name="P:Skychain.Models.Services.SkyServiceTimer.HasUnhandledExecutionError">
+            <summary>
+            Возвращает true, если при выполнении обработки возникла необработанная ошибка.
+            </summary>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyServiceTimer.IsThreadAbortException(System.Exception)">
+            <summary>
+            Возвращает true, если ошибка является принудительным выключением сервиса.
+            </summary>
+            <param name="error">Ошибка, проверяемая на наличие ThreadAbortException.</param>
+        </member>
+        <member name="M:Skychain.Models.Services.SkyServiceTimer.WriteErrorLog(System.Exception,System.String)">
+            <summary>
+            Записывает ошибку в лог ошибок в файл на диске, расположенный в исполняемой папке сервиса.
+            В случае если файл недоступен, записывает ошибку в журнал событий операционной системы.
+            </summary>
+            <param name="error">Ошибка, возникшая во время выполнения.</param>
+            <param name="logName">Название лога сервиса.</param>
+        </member>
+    </members>
+</doc>
