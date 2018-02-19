@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SkychainAPI</name>
+    </assembly>
+    <members>
+        <member name="M:SkychainAPI.IDataSet.Open">
+            <summary>
+            Данные.
+            </summary>
+        </member>
+        <member name="T:SkychainAPI.INeuralNetwork">
+            <summary>
+            Интерфейс нейросети.
+            </summary>
+        </member>
+        <member name="M:SkychainAPI.INeuralNetwork.Train(SkychainAPI.IOperationContext,SkychainAPI.ITrainScheme)">
+            <summary>
+            Training process.
+            </summary>
+            <param name="operationContext">Operation context.</param>
+            <param name="scheme">Train scheme.</param>
+        </member>
+        <member name="M:SkychainAPI.INeuralNetwork.Inference(SkychainAPI.IOperationContext,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            ???
+            </summary>
+            <param name="operationContext">Контекст выполнения операции.</param>
+            <param name="input">Входные данные.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SkychainAPI.IOperationContext">
+            <summary>
+            Контекст выполнения операции с нейросетью.
+            </summary>
+        </member>
+        <member name="M:SkychainAPI.IOperationContext.SaveModel(System.Byte[])">
+            <summary>
+            Saves the state of the neural network.
+            </summary>
+            <param name="checkpoint">Model state.</param>
+        </member>
+        <member name="P:SkychainAPI.IOperationContext.InitialState">
+            <summary>
+            Restore model from previous state.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SkychainAPI.IOperationContext.WriteLog(System.String)">
+            <summary>
+            Writes log.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:SkychainAPI.IOperationContext.OpenFile(System.Guid)">
+            <summary>
+            Opens file stream for file with id equals <paramref name="guid"/>.
+            </summary>
+            <param name="guid">File ID.</param>
+            <returns>File stream.</returns>
+        </member>
+        <member name="T:SkychainAPI.IEpoch">
+            <summary>
+            Итерация цикла обучения нейросети.
+            </summary>
+        </member>
+        <member name="P:SkychainAPI.IEpoch.Number">
+            <summary>
+            Номер текущей эпохи обучения.
+            </summary>
+        </member>
+        <member name="P:SkychainAPI.IEpoch.Dataset">
+            <summary>
+            Dataset.
+            </summary>
+        </member>
+        <member name="P:SkychainAPI.IEpoch.CustomParams">
+            <summary>
+            Кастомные параметры итерации цикла обучения.
+            </summary>
+        </member>
+        <member name="T:SkychainAPI.ITrainScheme">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
