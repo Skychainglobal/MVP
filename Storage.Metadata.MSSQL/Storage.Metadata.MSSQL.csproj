@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5FFBAA8-50E9-4920-9F7C-F96CBCF01A58}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Storage.Metadata.MSSQL</RootNamespace>
+    <AssemblyName>Storage.Metadata.MSSQL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Storage.Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Storage.Engine\Release\Storage.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Storage.Lib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9f4da00116c38ec5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Storage.Lib\Release\Storage.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MetadataAdapter.cs" />
+    <Compile Include="MetadataConsts.cs" />
+    <Compile Include="MetadataModel\DBCollection.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Adapters\DistributedTableAdapter.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Adapters\MetadataObjectAdapter.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Adapters\SingleTableAdapter.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Attributes\MetadataClassAttribute.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Attributes\MetadataIndexAttribute.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Attributes\MetadataPropertyAttribute.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Definitions\MetadataIndexColumnDefinition.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Definitions\MetadataIndexDefinition.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Definitions\MetadataPropertyDefinition.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Definitions\MetadataTypeDefinition.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Definitions\MetadataTypeProvider.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Interfaces\IFileRelativeObject.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\Interfaces\IMetadataObject.cs" />
+    <Compile Include="MetadataModel\MetadataObjects\MetadataQueryBuilder.cs" />
+    <Compile Include="MetadataModel\Schema\BaseSchema\DBColumnSchema.cs" />
+    <Compile Include="MetadataModel\Schema\BaseSchema\DBIndexColumnSchema.cs" />
+    <Compile Include="MetadataModel\Schema\BaseSchema\DBIndexSchema.cs" />
+    <Compile Include="MetadataModel\Schema\BaseSchema\DBPrincipalTableSchema.cs" />
+    <Compile Include="MetadataModel\Schema\BaseSchema\DBTableSchema.cs" />
+    <Compile Include="MetadataModel\Schema\BaseSchema\DBTableSchemaAdapter.cs" />
+    <Compile Include="MetadataModel\Schema\BaseSchema\DBTriggerSchema.cs" />
+    <Compile Include="MetadataModel\Schema\ConnectionsModel\DBAdapter.cs" />
+    <Compile Include="MetadataModel\Schema\ConnectionsModel\DBConnection.cs" />
+    <Compile Include="MetadataModel\Schema\ConnectionsModel\DBConnectionContext.cs" />
+    <Compile Include="MetadataModel\Schema\ConnectionsModel\DBTransaction.cs" />
+    <Compile Include="MetadataModel\Schema\ConnectionsModel\DBTransactionScope.cs" />
+    <Compile Include="MetadataModel\Schema\ConnectionsModel\OperationContext.cs" />
+    <Compile Include="MetadataModel\Schema\ConnectionsModel\OperationContextManager.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DBObjectColumnSchema.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DBObjectIndexColumnSchema.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DBObjectIndexSchema.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DBObjectPrincipalTableSchema.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DBObjectTablePartition.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DBObjectTableSchemaAdapter.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DistributedSchema\DBObjectDistributedTable.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DistributedSchema\DBObjectDistributedTablePartition.cs" />
+    <Compile Include="MetadataModel\Schema\DBObjectSchema\DistributedSchema\DBObjectTableActivator.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBClusteredIndex.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBColumn.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBIndex.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBIndexColumn.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBNonclusteredIndex.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBPrincipalTable.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBTable.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBTablePartition.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBTableRequiredInitAction.cs" />
+    <Compile Include="MetadataModel\Schema\Engine\DBTrigger.cs" />
+    <Compile Include="MetadataModel\Schema\GenericSchema\DBGenericColumnSchema.cs" />
+    <Compile Include="MetadataModel\Schema\GenericSchema\DBGenericIndexColumnSchema.cs" />
+    <Compile Include="MetadataModel\Schema\GenericSchema\DBGenericIndexSchema.cs" />
+    <Compile Include="MetadataModel\Schema\GenericSchema\DBGenericPrincipalTableSchema.cs" />
+    <Compile Include="MetadataModel\Schema\GenericSchema\DBGenericTablePartition.cs" />
+    <Compile Include="MetadataModel\Schema\GenericSchema\DBGenericTableSchemaAdapter.cs" />
+    <Compile Include="MetadataModel\Schema\Readers\DataRowReader.cs" />
+    <Compile Include="MetadataModel\Schema\Readers\DBColumnInfo.cs" />
+    <Compile Include="MetadataModel\Schema\Readers\DBIndexColumnInfo.cs" />
+    <Compile Include="MetadataModel\Schema\Readers\DBIndexInfo.cs" />
+    <Compile Include="MetadataModel\Schema\Readers\DBTableInfo.cs" />
+    <Compile Include="MetadataModel\Schema\Readers\DBTableInfoAdapter.cs" />
+    <Compile Include="MetadataModel\Schema\Readers\DBTriggerInfo.cs" />
+    <Compile Include="MetadataModel\Schema\SchemaExtensions.cs" />
+    <Compile Include="ObjectModel\Adapters\FolderAdapter.cs" />
+    <Compile Include="ObjectModel\Adapters\ReplicationFolderAdapter.cs" />
+    <Compile Include="ObjectModel\Adapters\StorageAdapter.cs" />
+    <Compile Include="ObjectModel\Adapters\TokenAdapter.cs" />
+    <Compile Include="ObjectModel\FileVersionData.cs" />
+    <Compile Include="ObjectModel\IMetadataObjects\FolderMetadata.cs" />
+    <Compile Include="ObjectModel\IMetadataObjects\ReplicationFolderMetadata.cs" />
+    <Compile Include="ObjectModel\IMetadataObjects\StorageMetadata.cs" />
+    <Compile Include="ObjectModel\IMetadataObjects\TokenMetadata.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SchemaAdapter\Interfaces\" />
+    <Folder Include="TableGenerator\GenericSchema\GenericSchema\" />
+    <Folder Include="TableGenerator\Schema\Schema\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Release\Storage.Metadata.MSSQL.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
